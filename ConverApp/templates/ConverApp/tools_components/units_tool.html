@@ -1,0 +1,44 @@
+
+<section id="units-converter-page" class="page" style="display: none;">
+
+    <!-- En-tête de section -->
+    <div class="meta-container" style="margin-bottom: 28px;">
+        <h5 style="margin: 0; font-size: 14px; color: var(--ch-muted);">Conversion d'unité</h5>
+        <h1 id="result-meta" class="ch-mono"
+            style="margin: 4px 0 0; font-size: 2rem; font-weight: 800;"></h1>
+    </div>
+
+    <!-- Formulaire de saisie vertical épuré -->
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+
+        <!-- Ligne d'Entrée : DE -->
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+            <span class="ch-label">DE</span>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <select id="unit-first" placeholder="Choisissez l'unité source..."
+                        style="width: 120px;"></select>
+                <input type="number" id="unit-input" class="ch-input" style="flex: 1;" placeholder="1">
+            </div>
+        </div>
+
+        <!-- Séparateur horizontal-->
+        <div class="ch-divider">
+            <button id="switchUnitBtn" class="ch-btn-swap"><i
+                    class="fa-solid fa-arrow-right-arrow-left"></i></button>
+        </div>
+
+        <!-- Ligne de Sortie-->
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+            <span class="ch-label">VERS</span>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <select id="unit-second" style="width: 120px;"
+                        placeholder="Choisissez l'unité cible..."></select>
+
+                <input type="text" id="unit-result-input" class="ch-result-field" disabled
+                       placeholder="">
+            </div>
+        </div>
+
+    </div>
+
+</section>

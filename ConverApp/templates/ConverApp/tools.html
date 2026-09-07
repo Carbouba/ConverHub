@@ -38,7 +38,7 @@
             </button>
 
             <div class="ch-nav-category">Image</div>
-            <button class="ch-nav-item action-btn active-item" data-page="qr-generator-page" id="QR">
+            <button class="ch-nav-item disabled" data-page="qr-generator-page" id="QR" disabled>
                 <span><i class="fa-solid fa-qrcode"></i></span> Générateur de QR Code <span class="ch-badge ch-badge-muted" style="margin-left: auto; font-size: 0.6rem;">BIENTÔT</span>
             </button>
 
@@ -66,12 +66,6 @@
 
                 <!-- ==================== GÉNÉRATEUR DE QR CODE ==================== -->
                 {% include "ConverApp/tools_components/qr_code_tool.html" %}
-
-            </div>
-        </main>
-
-    </div>
-{% endblock %}
 {% block script %}
     <script type="module" src="{% static 'ConverApp/js/script.js' %}" defer></script>
 {% endblock %}

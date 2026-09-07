@@ -1,0 +1,24 @@
+{
+  "name": "rate-convert",
+  "version": "1.0.0",
+  "description": "Un convertisseur de devises simple, rapide et pensé pour le mobile — né d'une frustration bien concrète : devoir jongler entre plusieurs sites pour connaître un taux de change au moment de finaliser un achat en ligne.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Carbouba/Currency_Converter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Carbouba/Currency_Converter/issues"
+  },
+  "homepage": "https://github.com/Carbouba/Currency_Converter#readme",
+  "dependencies": {
+    "qr-code-styling": "^1.9.2"
+  }
+}

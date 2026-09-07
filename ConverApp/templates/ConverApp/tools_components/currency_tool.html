@@ -1,0 +1,67 @@
+
+<section id="currency-converter-page" class="page">
+    <!-- Titre de l'outil avec le liseré vert ConverHub -->
+    <div style="margin-bottom: 24px;">
+        <h2 style="font-size: 1.5rem; font-weight: 800; border-left: 4px solid var(--ch-accent); padding-left: 12px; margin: 0;">
+            Conversion de devises
+        </h2>
+        <p style="font-size: 0.85rem; color: var(--ch-muted); margin: 4px 0 0 16px;">
+            Consultez les taux de change et convertissez vos monnaies en temps réel.
+        </p>
+    </div>
+
+
+    <div class="meta-container" style="margin-bottom: 28px;">
+        <h5 id="base-meta" style="margin: 0; font-size: 14px; color: var(--ch-muted);"></h5>
+        <h1 id="target-meta" class="ch-mono"
+            style="margin: 4px 0 0; font-size: 2rem; font-weight: 800;"></h1>
+        <p id="exchange-rate" style="margin: 8px 0 0; font-size: 12px; color: var(--ch-muted);"></p>
+        <p id="update-at" style="margin: 2px 0 0; font-size: 11px; color: var(--ch-muted-soft);"></p>
+    </div>
+
+    <!-- Formulaire de saisie -->
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+
+        <!-- Ligne d'Entrée -->
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+            <span class="ch-label">DE</span>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <select id="currency-first" placeholder="Choisissez une devise source..."
+                        style="width: 120px;"></select>
+                <input type="number" id="first-input" class="ch-input" style="flex: 1;"
+                       placeholder="Entrez le montant">
+            </div>
+        </div>
+
+        <!-- Séparateur -->
+        <div class="ch-divider">
+            <button id="switchBtn" class="ch-btn-swap"><i
+                    class="fa-solid fa-arrow-right-arrow-left"></i></button>
+        </div>
+
+        <!-- Ligne de Sortie : VERS -->
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+            <span class="ch-label">VERS</span>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <select id="currency-second" placeholder="Choisissez une devise cible..."
+                        style="width: 120px;"></select>
+                <input type="text" id="second-input" class="ch-result-field" disabled>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bloc des Taux Populaires secondaires -->
+    <div style="margin-top: 32px; padding-top: 20px; border-top: 1.5px solid var(--ch-line);">
+        <div class="ch-label" style="margin-bottom: 12px;">Taux du jour</div>
+        <div class="ch-rate-row"><span class="ch-rate-label">EUR &rarr; USD</span><span
+                class="ch-rate-value">1.0850</span></div>
+        <div class="ch-rate-row"><span class="ch-rate-label">EUR &rarr; GBP</span><span
+                class="ch-rate-value">0.8560</span></div>
+        <div class="ch-rate-row"><span class="ch-rate-label">EUR &rarr; JPY</span><span
+                class="ch-rate-value">161.20</span></div>
+        <div class="ch-rate-row"><span class="ch-rate-label">EUR &rarr; CHF</span><span
+                class="ch-rate-value">0.9810</span></div>
+    </div>
+
+</section>

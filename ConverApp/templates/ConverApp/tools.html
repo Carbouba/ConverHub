@@ -1,0 +1,71 @@
+{% extends 'ConverApp/layout/base.html' %}
+{% load static %}
+
+{% block title %}ConverHub | Tools{% endblock %}
+
+{% block body %}
+    <input type="hidden" value="{{ tool }}" id="select-tool">
+    <!-- L'App Shell global à deux colonnes -->
+    <div class="ch-app-shell">
+
+        <div class="ch-mobile-header">
+            <button id="menu-toggle-btn" class="ch-btn ch-btn-ghost" style="font-size: 1.3rem;">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <div id="sidebar-backdrop" class="ch-sidebar-backdrop"></div>
+
+        <!-- ==================== COLONNE GAUCHE : LA SIDEBAR ==================== -->
+        <aside class="ch-sidebar">
+
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 24px; padding-left: 10px;">
+                <a href="{% url "home" %}"><img src="{% static 'ConverApp/Brand images/logo-dark.png' %}" alt="Logo"
+                                                style="height: 36px; width: auto;"></a>
+            </div>
+
+            <!-- CATEGORIE : FINANCE -->
+            <div class="ch-nav-category ">Finance</div>
+            <button class="ch-nav-item action-btn active-item" data-page="currency-converter-page" id="CCP">
+                <span><i class="fa-solid fa-money-bill-transfer"></i></span> Devise
+            </button>
+
+            <div class="ch-nav-category">Mesures</div>
+
+            <!-- Onglet Distance (Bouton d'action connecté au JS de pagination) -->
+            <button class="ch-nav-item action-btn active-item" data-page="units-converter-page" id="UC">
+                <span><i class="fa-solid fa-ruler"></i></span> Distance
+            </button>
+
+            <div class="ch-nav-category">Image</div>
+            <button class="ch-nav-item disabled" data-page="qr-generator-page" id="QR" disabled>
+                <span><i class="fa-solid fa-qrcode"></i></span> Générateur de QR Code <span class="ch-badge ch-badge-muted" style="margin-left: auto; font-size: 0.6rem;">BIENTÔT</span>
+            </button>
+
+
+            <!-- Copyright discret de bas de page -->
+            <div style="margin-top: auto; padding: 10px; font-size: 0.72rem; color: var(--ch-muted-soft);">
+                &copy; 2026 ConverHub
+            </div>
+
+        </aside>
+
+        <main class="ch-main">
+            <div id="alert-div" class="custom-alert" role="alert">
+                <span class="ch-alert-icon">⚠️</span>
+                <span id="alert-message"></span>
+            </div>
+
+            <div id="container" class="ch-card ch-animate-in ch-container-wide">
+
+                <!-- ==================== CONVERTISSEUR DE DEVISES ==================== -->
+                {% include "ConverApp/tools_components/currency_tool.html" %}
+
+               <!-- ==================== CONVERTISSEUR DE DISTANCES ==================== -->
+                {% include "ConverApp/tools_components/units_tool.html" %}
+
+                <!-- ==================== GÉNÉRATEUR DE QR CODE ==================== -->
+                {% include "ConverApp/tools_components/qr_code_tool.html" %}
+{% block script %}
+    <script type="module" src="{% static 'ConverApp/js/script.js' %}" defer></script>
+{% endblock %}

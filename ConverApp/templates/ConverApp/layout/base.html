@@ -1,6 +1,6 @@
 {% load static %}
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,11 +17,13 @@
 
 
     <!-- Fichier CSS  -->
-    <link rel="stylesheet" href="{% static 'ConverApp/converhub-style.css' %}">
-    <link rel="stylesheet" href="{% static 'ConverApp/converhub-tokens.css' %}">
+    <link rel="stylesheet" href="{% static 'ConverApp/style/converhub-style.css' %}">
+    <link rel="stylesheet" href="{% static 'ConverApp/style/converhub-tokens.css' %}">
 
     <!-- FontAwesome  -->
     <script src="https://kit.fontawesome.com/d17de608c3.js" crossorigin="anonymous"></script>
+
+    <script src="{% static 'ConverApp/js/vendor/qr-code-styling.js' %}"></script>
 </head>
 
 <!-- Google tag (gtag.js) -->
@@ -33,20 +35,15 @@
     gtag('config', 'G-PLB48M9XT8');
 </script>
 
-<body class="bg-slate-50 min-h-screen text-slate-800">
+<body>
 {% block body %}
 {% endblock %}
 
 
-<footer class="ch-footer" aria-label="Informations de copyright">
-    <p>
-        &copy; {% now "Y" %}
-        <a href="https://github.com/Carbouba" target="_blank" rel="noopener noreferrer">Carbouba</a>
-        &mdash; ConverHub.
-    </p>
-    <a href="https://github.com/Carbouba/Currency_Converter.git" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-</footer>
 
+
+{% block footer %}
+{% endblock %}
 
 {% block script %}
 {% endblock %}

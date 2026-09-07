@@ -39,7 +39,8 @@
 
             <div class="ch-nav-category">Image</div>
             <button class="ch-nav-item disabled" data-page="qr-generator-page" id="QR" disabled>
-                <span><i class="fa-solid fa-qrcode"></i></span> Générateur de QR Code <span class="ch-badge ch-badge-muted" style="margin-left: auto; font-size: 0.6rem;">BIENTÔT</span>
+                <span><i class="fa-solid fa-qrcode"></i></span> Générateur de QR Code <span
+                    class="ch-badge ch-badge-muted" style="margin-left: auto; font-size: 0.6rem;">BIENTÔT</span>
             </button>
 
 
@@ -61,11 +62,15 @@
                 <!-- ==================== CONVERTISSEUR DE DEVISES ==================== -->
                 {% include "ConverApp/tools_components/currency_tool.html" %}
 
-               <!-- ==================== CONVERTISSEUR DE DISTANCES ==================== -->
+                <!-- ==================== CONVERTISSEUR DE DISTANCES ==================== -->
                 {% include "ConverApp/tools_components/units_tool.html" %}
 
                 <!-- ==================== GÉNÉRATEUR DE QR CODE ==================== -->
                 {% include "ConverApp/tools_components/qr_code_tool.html" %}
-{% block script %}
-    <script type="module" src="{% static 'ConverApp/js/script.js' %}" defer></script>
+            </div>
+        </main>
+    </div>
+                {% block script %}
+                    <script type="module" src="{% static 'ConverApp/js/script.js' %}" defer></script>
+                {% endblock %}
 {% endblock %}

@@ -38,7 +38,7 @@
             </button>
 
             <div class="ch-nav-category">Image</div>
-            <button disabled class="ch-nav-item disabled" data-page="units-converter-page" id="QR">
+            <button class="ch-nav-item action-btn active-item" data-page="qr-generator-page" id="QR">
                 <span><i class="fa-solid fa-qrcode"></i></span> Générateur de QR Code <span class="ch-badge ch-badge-muted" style="margin-left: auto; font-size: 0.6rem;">BIENTÔT</span>
             </button>
 
@@ -56,7 +56,7 @@
                 <span id="alert-message"></span>
             </div>
 
-            <div id="container" class="ch-card ch-animate-in" style="max-width: 480px; margin: 0 auto;">
+            <div id="container" class="ch-card ch-animate-in ch-container-wide">
 
                 <!-- ==================== CONVERTISSEUR DE DEVISES ==================== -->
                 {% include "ConverApp/tools_components/currency_tool.html" %}

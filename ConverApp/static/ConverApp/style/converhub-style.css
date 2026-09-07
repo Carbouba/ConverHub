@@ -779,6 +779,33 @@ footer, .ch-footer {
 .ch-animate-in {
     animation: ch-fadeIn 0.4s ease both;
 }
+/* ─── Carte élargie pour le Studio QR Code ─── */
+.ch-container-wide {
+    width: 100%;
+    max-width: 480px; /* Sur mobile, reste compacte */
+    margin: 0 auto;
+    transition: max-width 0.3s ease;
+}
+
+/* ─── Grille du Studio QR Code (Mobile-First) ─── */
+.qr-studio-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 colonne fluide à 100% sur mobile (zéro débordement !) */
+    gap: 20px;
+    width: 100%;
+}
+
+/* ─── Sur grand écran (Ordinateur) : On déploie les 2 colonnes ! ─── */
+@media (min-width: 769px) {
+    .ch-container-wide {
+        max-width: 860px; /* La carte s'ouvre en grand sur PC ! */
+    }
+
+    .qr-studio-grid {
+        grid-template-columns: 1fr 1.1fr; /* 2 colonnes équilibrées côte à côte */
+        gap: 28px;
+    }
+}
 
 /* ─── Responsive ─────────────────────────────────────────────────────────── */
 

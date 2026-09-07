@@ -150,6 +150,20 @@ p {
     justify-content: space-between;
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
+@keyframes bouncing {
+   0%{
+       transform: scale(95%);
+   }
+    100%{
+        transform: scale(100%);
+    }
+}
+
+.ch-bouncing-animate {
+    animation-name: bouncing;
+    animation-duration: 3s;
+
+}
 
 @keyframes grow {
     0% {
@@ -286,10 +300,10 @@ p {
 
 
 /* =========================================================
-   1. MENU HAMBURGER & TIROIR MOBILE (Mobile-First) [1.1]
+   1. MENU HAMBURGER
    ========================================================= */
 
-/* Barre supérieure visible uniquement sur mobile */
+/* Barre supérieure  */
 .ch-mobile-header {
     position: sticky;
     z-index: 1000;
@@ -316,7 +330,7 @@ p {
     display: block;
 }
 
-/* La Sidebar transformée en tiroir coulissant sur mobile */
+/* La Sidebar */
 .ch-sidebar {
     position: fixed;
     top: 0;
@@ -331,7 +345,7 @@ p {
     padding: 24px 16px;
     gap: 6px;
 
-    /* 🚀 L'animation de glissement : caché hors écran à gauche [1.1] */
+    /*  L'animation de glissement*/
     transform: translateX(-100%);
     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
@@ -343,7 +357,7 @@ p {
 
 
 /* =========================================================
-   2. RETOUR SUR GRAND ÉCRAN (PC de bureau) [1.1]
+   2. RETOUR SUR GRAND ÉCRAN
    ========================================================= */
 
 @media (min-width: 769px) {
@@ -390,7 +404,12 @@ p {
     background: var(--ch-card);
     border-radius: 20px;
     padding: 20px 24px;
-    box-shadow: 0 1px 2px rgba(16, 24, 32, .04);
+    transition: transform 0.3s ease;
+
+}
+.ch-card-sm:hover {
+    box-shadow: var(--ch-shadow-card);
+    transform: scale(1);
 }
 
 /* ─── Champs de saisie ───────────────────────────────────────────────────── */
@@ -627,7 +646,7 @@ p {
     transition: .2s;
 }
 
-.action-btn:hover {
+.active-item:hover {
     transform: translateX(10px);
 }
 aside span i {
@@ -645,7 +664,11 @@ aside span i {
     transform: translateX(10px);
 }
 
-.ch-nav-item.disabled {
+/*.ch-nav-item.disabled {*/
+/*    color: var(--ch-muted-soft);*/
+/*    cursor: default;*/
+/*}*/
+.disabled {
     color: var(--ch-muted-soft);
     cursor: default;
 }
@@ -724,7 +747,7 @@ aside span i {
 
 }
 footer, .ch-footer {
-  background: #f0fdf4; /* Il épouse automatiquement la couleur de la page ! */
+  background: #f0fdf4;
 }
 .ch-footer a {
     color: var(--ch-accent);

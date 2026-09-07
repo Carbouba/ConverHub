@@ -1,4 +1,4 @@
-{% extends 'ConverApp/base.html' %}
+{% extends 'ConverApp/layout/base.html' %}
 {% load static %}
 
 <title>{% block title %}ConverHub | Home{% endblock %}</title>
@@ -7,22 +7,7 @@
     <div class="ch-page-wrap" style="background-color: #f0fdf4; padding: 0 20px 40px;">
         <!-- Utilisation du fond d'écran vert sauge écolo de ta maquette -->
 
-        <!-- ==================== HEADER  ==================== -->
-        <header class="ch-navbar-pill ch-animate-in">
-
-            <!-- Logo de marque  -->
-            <div style="display: flex; align-items: center; gap: 8px;">
-                <a href="{% url 'home' %}">
-                    <img src="{% static 'ConverApp/Brand images/logo-dark.png' %}" alt="ConverHub Logo"
-                         style="height: 34px; width: auto;">
-                </a>
-            </div>
-
-            <div><a href="{% url 'tools' "currency-converter-page" %}" class="ch-btn ch-btn-primary"
-                    style="border-radius: var(--ch-radius-pill);">Explorer les outils <i class="fa-solid fa-screwdriver-wrench" style="color: rgb(255, 255, 255);"></i></a>
-            </div>
-
-        </header>
+        {% include 'ConverApp/layout/header.html' %}
 
         <!-- ==================== HERO SECTION ==================== -->
         <div class="ch-container ch-animate-in" style="text-align: center; margin-bottom: 48px;">
@@ -45,7 +30,7 @@
             </p>
 
 
-            <span class="ch-badge ch-badge-accent font-bold" style="font-size: 0.8rem; padding: 6px 16px;">TOUS LES OUTILS</span>
+            <span class="ch-badge ch-badge-accent font-bold" style="font-size: 0.8rem; padding: 6px 16px;">OUTILS POPULAIRE</span>
 
         </div>
 
@@ -74,7 +59,19 @@
                     mesures : m, cm, mm et plus.</p>
             </a>
 
+            <a {#href="{% url "tools" "qr-generator-page" %}"#} class="ch-card-sm disabled" disabled
+               style="flex: 1; min-width: 260px; text-align: center; background: var(--ch-accent-soft); border: 1.5px solid var(--ch-ink); transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none;">
+                <span class="ch-badge ch-badge-teal" style="margin-left: auto; font-size: 0.6rem; color: var(--ch-ink)">BIENTÔT</span>
+                <div style="font-size: 2.2rem; margin-bottom: 12px;"><i class="fa-solid fa-qrcode" style="color: rgb(30, 142, 90);"></i></div>
+                <h3 style="margin-bottom: 6px; font-weight: 700; color: var(--ch-ink);">Générateur de QR code</h3>
+                <p style="font-size: 0.87rem; color: var(--ch-muted-soft); margin: 0;">Générez des QR codes personnalisés</p>
+
+            </a>
+
         </div>
+    <div><a href="{% url 'tools' "currency-converter-page" %}" class="ch-btn ch-btn-primary"
+                    style="border-radius: var(--ch-radius-pill); margin-top: 1.5rem">Explorer les outils <i class="fa-solid fa-screwdriver-wrench" style="color: rgb(255, 255, 255);"></i></a>
+            </div>
 
     </div>
 

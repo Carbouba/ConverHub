@@ -1,0 +1,17 @@
+{% load static %}
+<!-- ==================== HEADER  ==================== -->
+        <header class="ch-navbar-pill ch-animate-in">
+
+            <!-- Logo de marque  -->
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'ConverApp/Brand images/logo-dark.png' %}" alt="ConverHub Logo"
+                         style="height: 34px; width: auto;">
+                </a>
+            </div>
+
+            <div><a href="{% url 'tools' "currency-converter-page" %}" class="ch-btn ch-btn-secondary"
+                    style="border-radius: var(--ch-radius-pill);">Explorer les outils <i class="fa-solid fa-screwdriver-wrench" style="color: var(--ch-accent);"></i></a>
+            </div>
+
+        </header>

@@ -1,10 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<section id="weather" class="page" style="display: none;">
 
-</body>
-</html>
+    <!-- 🔍 1. BARRE DE RECHERCHE MOBILE-FIRST (En haut de l'outil) -->
+    <div class="weather-search-bar">
+        <input type="text" class="search-input ch-input" placeholder="Rechercher une ville (ex: Paris, Niamey)...">
+        <button type="button" class="search-btn ch-btn ch-btn-primary">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+    </div>
+
+    <!-- Message d'erreur (masqué par défaut) -->
+    <div class="error" style="display: none; color: #ef4444; font-size: 0.8rem; font-weight: 600; margin-top: -12px; margin-bottom: 12px; text-align: center;">
+        Ville introuvable. Veuillez réessayer.
+    </div>
+
+    <!-- ☀️ 2. LA GRANDE CARTE MÉTÉO HERO (Conforme à ta maquette) -->
+    <div class="weather-hero-card ch-animate-in">
+
+        <!-- Ligne supérieure : Ville, Date & Badge de condition -->
+        <div class="weather-header-row">
+            <div>
+                <h2 class="city weather-city">Paris, France</h2>
+                <p class="weather-date">Jeudi, 26 Octobre</p>
+            </div>
+
+            <!-- Badge de condition avec icône -->
+            <div class="weather-condition-badge">
+                <span class="weather-badge-icon">☁️</span>
+                <span class="condition-description">Partly Cloudy</span>
+            </div>
+        </div>
+
+        <!-- Ligne centrale : Température, Min/Max & Grande Icône Météo -->
+        <div class="weather-body-row">
+
+            <!-- Bloc Température à gauche -->
+            <div class="weather-temp-group">
+                <span class="temp weather-temp-val">24°</span>
+
+                <!-- Les flèches Min / Max empilées -->
+                <div class="weather-minmax">
+                    <span class="temp-max"><span style="color: #f59e0b;">&uarr;</span> 26°</span>
+                    <span class="temp-min"><span style="color: #06b6d4;">&darr;</span> 14°</span>
+                </div>
+            </div>
+
+            <!-- Grande Illustration météo à droite (avec effet de halo lumineux) -->
+            <div class="weather-icon-wrapper">
+                <img class="weather-icon" src="[CHEMIN_STATIQUE_VERS_IMAGES_METEO/clear-day.svg]" alt="Condition Météo">
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- 📊 3. LES 3 CARTES DE MÉTRIQUES SECONDAIRES (Mobile-First) -->
+    <div class="weather-metrics-grid ch-animate-in">
+
+        <!-- Carte 1 : VENT -->
+        <div class="ch-card-sm weather-subcard">
+            <div class="ch-label"><i class="fa-solid fa-wind" style="color: var(--ch-accent);"></i> Vent</div>
+            <div class="weather-subcard-val">
+                <span class="wind">12 km/h</span>
+                <span class="wind-dir-icon"><i class="fa-solid fa-location-arrow"></i></span>
+            </div>
+            <span class="weather-subcard-sub text-slate-400">Direction NO</span>
+        </div>
+
+        <!-- Carte 2 : HUMIDITÉ -->
+        <div class="ch-card-sm weather-subcard">
+            <div class="ch-label"><i class="fa-solid fa-droplet" style="color: #3b82f6;"></i> Humidité</div>
+            <div class="weather-subcard-val humidity">64%</div>
+            <span class="weather-subcard-sub text-slate-400">Point de rosée 16°</span>
+        </div>
+
+        <!-- Carte 3 : VISIBILITÉ -->
+        <div class="ch-card-sm weather-subcard">
+            <div class="ch-label"><i class="fa-solid fa-eye" style="color: #8b5cf6;"></i> Visibilité</div>
+            <div class="weather-subcard-val visibility">10 km</div>
+            <span class="weather-subcard-sub text-slate-400">Vue dégagée</span>
+        </div>
+
+    </div>
+
+</section>

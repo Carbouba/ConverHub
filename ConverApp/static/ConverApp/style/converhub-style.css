@@ -844,3 +844,174 @@ footer, .ch-footer {
 * {
     scrollbar-width: none;
 }
+
+
+/* =========================================================
+   OUTIL MÉTÉO (CONVERHUB WEATHER STUDIO) — Mobile-First
+   ========================================================= */
+
+/* Barre de recherche de ville */
+.weather-search-bar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.weather-search-bar .search-input {
+    flex: 1;
+}
+
+/* Grande Carte Météo Hero */
+.weather-hero-card {
+    background: #ffffff;
+    /* Dégradé doux : halo jaune/orangé subtil à droite, blanc pur à gauche */
+    background: radial-gradient(circle at 85% 60%, rgb(238 241 244) 0%, rgba(255, 255, 255, 0.9) 60%),
+                linear-gradient(135deg, #ffffff 0%, #f9fbfa 100%);
+    /*border: 1.5px solid var(--ch-line);*/
+    border-radius: var(--ch-radius-card);
+    padding: 28px 24px;
+    box-shadow: var(--ch-shadow-card);
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ligne supérieure (Ville et Badge) */
+.weather-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.weather-city {
+    font-size: 1.6rem;
+    margin: 0;
+    color: var(--ch-ink);
+}
+
+.weather-date {
+    font-size: 0.85rem;
+    color: var(--ch-muted);
+    margin: 2px 0 0;
+}
+
+/* Badge de condition */
+.weather-condition-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(238, 242, 255, 0.8); /* Fond bleuté très doux */
+    border: 1px solid rgba(199, 210, 254, 0.6);
+    padding: 6px 14px;
+    border-radius: var(--ch-radius-pill);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #4338ca;
+    white-space: nowrap;
+}
+
+/* Ligne centrale (Température et Illustration) */
+.weather-body-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 24px;
+    gap: 16px;
+}
+
+.weather-temp-group {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.weather-temp-val {
+    font-family: var(--ch-font-brand);
+    font-size: 4.8rem;
+    font-weight: 800;
+    line-height: 0.9;
+    color: var(--ch-ink);
+    letter-spacing: -0.04em;
+}
+
+/* Mini-flèches Min/Max empilées */
+.weather-minmax {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--ch-font-mono);
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--ch-ink);
+}
+
+/* Illustration météo et halo */
+.weather-icon-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.weather-icon {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 16px rgba(245, 158, 11, 0.2));
+}
+
+/* Grille des 3 cartes secondaires (Mobile-First) */
+.weather-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* S'adapte sur 1, 2 ou 3 colonnes selon la largeur du smartphone ! */
+    gap: 12px;
+    width: 100%;
+}
+
+.weather-subcard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px;
+    background: var(--ch-card);
+    /*border: 1.5px solid var(--ch-line);*/
+    /*border-radius: 18px;*/
+    box-shadow: var(--ch-shadow-card);
+    min-height: 105px;
+}
+
+.weather-subcard-val {
+    font-family: var(--ch-font-brand);
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--ch-ink);
+    margin: 6px 0 2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.weather-subcard-sub {
+    font-size: 0.72rem;
+    color: var(--ch-muted-soft);
+}
+
+.wind-dir-icon {
+    font-size: 0.9rem;
+    color: var(--ch-accent);
+    transform: rotate(45deg); /* Orientation boussole */
+}
+
+/* Adaptation sur très petit smartphone (<360px) */
+@media (max-width: 380px) {
+    .weather-temp-val {
+        font-size: 3.6rem;
+    }
+    .weather-icon {
+        width: 75px;
+        height: 75px;
+    }
+}

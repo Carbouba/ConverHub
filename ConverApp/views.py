@@ -23,6 +23,10 @@ def tools(request, tool):
         'tool': tool,
     })
 
+@require_GET
+def get_weather(request):
+    return render(request, "ConverApp/tools_components/weather.html")
+
 
 @require_GET
 def convert_currency(request):
@@ -69,3 +73,5 @@ def get_symbols(request):
         return JsonResponse({'error': 'Erreur API externe'}, status=502)
 
     return JsonResponse(response.json())
+
+

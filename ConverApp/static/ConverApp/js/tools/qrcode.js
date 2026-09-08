@@ -156,14 +156,14 @@ export function InitQrCode() {
         btn.addEventListener('click', () => {
             const sectionId = document.querySelector('#qr-dots-style').id
             const targetId = btn.id
-            switchBtn(targetId, sectionId)
+            switchStyleBtn(targetId, sectionId)
         })
     })
     document.querySelectorAll('#qr-corners-style button').forEach(btn => {
         btn.addEventListener('click', () => {
             const sectionId = document.querySelector('#qr-corners-style').id
             const targetId = btn.id
-            switchBtn(targetId, sectionId)
+            switchStyleBtn(targetId, sectionId)
         })
     })
     document.querySelectorAll('#qr-corners-dots-style button').forEach(btn => {

@@ -17,17 +17,32 @@ const qrLogo = document.querySelector('#qr-logo-input')
 const downloadBtn = document.querySelector('#qr-download-btn')
 let qrCode
 
-function switchStyleBtn(id, section) {
-    document.querySelectorAll(`#${section} button`).forEach(btn => {
-        btn.classList.remove('active')
-    })
-    document.querySelector(`#${id}`).classList.add('active')
-
-}
-
-export function InitQrCode() {
-
-    qrCode = new QRCodeStyling({
+const extensionOptions = {
+        round: 1,
+        thickness: 60,
+        color: "#000000",
+        decorations: {
+          top: {
+            type: "text",
+            value: "SEE WHY IT'S SUPER",
+            style: "font: 30px sans-serif; fill: #D5B882;",
+          },
+          bottom: {
+            type: "text",
+            value: "SCAN ME",
+            style: "font: 30px sans-serif; fill: #D5B882;",
+          },
+        },
+        borderInner: {
+          color: "#000000",
+          thickness: 10,
+        },
+        borderOuter: {
+          color: "#000000",
+          thickness: 10,
+        },
+      };
+const options = {
         width: 300,
         height: 300,
         type: "svg",
@@ -52,7 +67,19 @@ export function InitQrCode() {
             crossOrigin: "anonymous",
             margin: 20
         }
+    }
+
+function switchStyleBtn(id, section) {
+    document.querySelectorAll(`#${section} button`).forEach(btn => {
+        btn.classList.remove('active')
     })
+    document.querySelector(`#${id}`).classList.add('active')
+
+}
+
+export function InitQrCode() {
+
+    qrCode = new QRCodeStyling(options)
 
     qrCode.append(document.getElementById("qr-code-canvas"));
     downloadBtn.addEventListener('click', () => {

@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Carbouba/Currency_Converter#readme",
   "dependencies": {
+    "qr-border-plugin": "^0.1.1",
     "qr-code-styling": "^1.9.2"
   }
 }

@@ -19,7 +19,7 @@ const today = new Date();
 * all symboles and code of currencies.
 * Then it create the option of select input using data that she
 * get since API.*/
-    async function getCurrencySelects() {
+async function getCurrencySelects() {
 
 
         try {

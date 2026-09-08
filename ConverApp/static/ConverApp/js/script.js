@@ -3,6 +3,7 @@ import {initUnits} from "./tools/units.js";
 import {initNavigation} from "./core/navigation.js";
 import {initAnimations} from "./core/animations.js";
 import {InitQrCode} from "./tools/qrcode.js"
+import {initWeather} from "./tools/weather.js";
 /*
 * Attempt to load all the DOM content*/
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,5 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavigation()
     initAnimations()
     InitQrCode()
+    initWeather()
 
 })

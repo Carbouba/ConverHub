@@ -6,11 +6,9 @@ import requests
 from decouple import config
 from django.views.decorators.http import require_GET
 
-# api_key = config('API_KEY')
-# headers = {
-#     "Authorization": f"Bearer {api_key}"
-# }
-# url = 'https://allratestoday.com/api/v1/rates'
+from ConverApp.api_calls import get_coordinates, get_current_weather
+
+api_key = config('WEATHER_API_KEY')
 get_symbole_urls = 'https://allratestoday.com/api/v1/symbols'
 
 
@@ -25,7 +23,26 @@ def tools(request, tool):
 
 @require_GET
 def get_weather(request):
-    return render(request, "ConverApp/tools_components/weather.html")
+    city = request.GET.get('city')
+
+    try:
+        coordonnee = get_coordinates(city, api_key)
+    except requests.exceptions.RequestException as e:
+        return JsonResponse({'error': 'Erreur API externe'}, status=502)
+    # # Obtension des coordonnées par nom de ville
+
+    l_at = coordonnee[0]
+    l_on = coordonnee[1]
+    country = coordonnee[2]
+
+    try:
+        current_weather = get_current_weather(l_at, l_on, api_key)
+    except requests.exceptions.RequestException as e:
+        return JsonResponse({'error': 'Erreur API externe'}, status=502)
+
+
+    return JsonResponse(current_weather, safe=False)
+
 
 
 @require_GET

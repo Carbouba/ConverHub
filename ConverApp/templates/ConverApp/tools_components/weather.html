@@ -1,15 +1,16 @@
+{% load static %}
 <section id="weather" class="page" style="display: none;">
 
     <!-- 🔍 1. BARRE DE RECHERCHE MOBILE-FIRST (En haut de l'outil) -->
     <div class="weather-search-bar">
-        <input type="text" class="search-input ch-input" placeholder="Rechercher une ville (ex: Paris, Niamey)...">
-        <button type="button" class="search-btn ch-btn ch-btn-primary">
+        <input type="text" id="search-input" class="search-input ch-input" placeholder="Rechercher une ville (ex: Paris, Niamey)...">
+        <button type="button" id="search-btn" class="search-btn ch-btn ch-btn-primary">
             <i class="fa-solid fa-magnifying-glass"></i>
         </button>
     </div>
 
     <!-- Message d'erreur (masqué par défaut) -->
-    <div class="error" style="display: none; color: #ef4444; font-size: 0.8rem; font-weight: 600; margin-top: -12px; margin-bottom: 12px; text-align: center;">
+    <div class="error" id="error" style="display: none; color: #ef4444; font-size: 0.8rem; font-weight: 600; margin-top: -12px; margin-bottom: 12px; text-align: center;">
         Ville introuvable. Veuillez réessayer.
     </div>
 
@@ -19,14 +20,14 @@
         <!-- Ligne supérieure : Ville, Date & Badge de condition -->
         <div class="weather-header-row">
             <div>
-                <h2 class="city weather-city">Paris, France</h2>
+                <h2 id="city" class="city weather-city">Paris, </h2> <span id="country"></span>
                 <p class="weather-date">Jeudi, 26 Octobre</p>
             </div>
 
             <!-- Badge de condition avec icône -->
             <div class="weather-condition-badge">
                 <span class="weather-badge-icon">☁️</span>
-                <span class="condition-description">Partly Cloudy</span>
+                <span id="condition-description" class="condition-description">Partly Cloudy</span>
             </div>
         </div>
 
@@ -35,18 +36,18 @@
 
             <!-- Bloc Température à gauche -->
             <div class="weather-temp-group">
-                <span class="temp weather-temp-val">24°</span>
+                <span id="temp" class="temp weather-temp-val">24°</span>
 
                 <!-- Les flèches Min / Max empilées -->
                 <div class="weather-minmax">
-                    <span class="temp-max"><span style="color: #f59e0b;">&uarr;</span> 26°</span>
-                    <span class="temp-min"><span style="color: #06b6d4;">&darr;</span> 14°</span>
+                   <div><span style="color: #f59e0b;">&uarr;</span> <span id="temp-max"> 26°</span></div>
+                    <div><span style="color: #06b6d4;">&darr;</span> <span id="temp-min"> 14°</span></div>
                 </div>
             </div>
 
             <!-- Grande Illustration météo à droite (avec effet de halo lumineux) -->
             <div class="weather-icon-wrapper">
-                <img class="weather-icon" src="[CHEMIN_STATIQUE_VERS_IMAGES_METEO/clear-day.svg]" alt="Condition Météo">
+                <img id="weather-icon" src="" alt="Condition Météo">
             </div>
 
         </div>

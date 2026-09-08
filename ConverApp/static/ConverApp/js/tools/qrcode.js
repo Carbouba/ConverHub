@@ -17,6 +17,13 @@ const qrLogo = document.querySelector('#qr-logo-input')
 const downloadBtn = document.querySelector('#qr-download-btn')
 let qrCode
 
+function switchBtn(id, section) {
+    document.querySelectorAll(`#${section} button`).forEach(btn => {
+        btn.classList.remove('active')
+    })
+    document.querySelector(`#${id}`).classList.add('active')
+
+}
 
 export function InitQrCode() {
 
@@ -43,7 +50,7 @@ export function InitQrCode() {
         },
         imageOptions: {
             crossOrigin: "anonymous",
-            margin: 10
+            margin: 20
         }
     })
 
@@ -124,9 +131,9 @@ export function InitQrCode() {
             return
         }
         if (!file.type.startsWith('image/')) {
-        showAlert("Please select a valid image file.");
-        return;
-    }
+            showAlert("Please select a valid image file.");
+            return;
+        }
         const reader = new FileReader();
 
 
@@ -143,6 +150,30 @@ export function InitQrCode() {
         };
         reader.readAsDataURL(file);
     })
+
+
+    document.querySelectorAll('#qr-dots-style button').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const sectionId = document.querySelector('#qr-dots-style').id
+            const targetId = btn.id
+            switchBtn(targetId, sectionId)
+        })
+    })
+    document.querySelectorAll('#qr-corners-style button').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const sectionId = document.querySelector('#qr-corners-style').id
+            const targetId = btn.id
+            switchBtn(targetId, sectionId)
+        })
+    })
+    document.querySelectorAll('#qr-corners-dots-style button').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const sectionId = document.querySelector('#qr-corners-dots-style').id
+            const targetId = btn.id
+            switchBtn(targetId, sectionId)
+        })
+    })
+
 
 }
 

@@ -1,9 +1,11 @@
 /*
 * DECLARATION DES VARIABLES*/
 
+import {showAlert} from "../core/alert.js";
+
 let qrData = document.getElementById('qr-data-input')
 const fileName = document.getElementById('qr-filename-input')
-const qrExtensionSelect = document.getElementById('qr-exention-select')
+const qrExtensionSelect = document.getElementById('qr-extension-select')
 const qrDotsStyleBtn = document.querySelectorAll('#qr-dots-style button')
 const qrDotsColor = document.querySelector('#qr-dots-color')
 const qrCornersStyleBtn = document.querySelectorAll('#qr-corners-style button')
@@ -22,8 +24,8 @@ export function InitQrCode() {
         width: 300,
         height: 300,
         type: "svg",
-        data: qrData,
-        image: "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg",
+        data: "",
+        image: "",
         dotsOptions: {
             color: qrDotsColor.value,
             type: 'rounded'
@@ -37,17 +39,22 @@ export function InitQrCode() {
             type: 'dot',
         },
         backgroundOptions: {
-            color: qrBgColor.value,
+            color: '#fff',
         },
         imageOptions: {
             crossOrigin: "anonymous",
-            margin: 20
+            margin: 10
         }
     })
 
     qrCode.append(document.getElementById("qr-code-canvas"));
     downloadBtn.addEventListener('click', () => {
         qrCode.download({name: fileName.value, extension: qrExtensionSelect.value});
+    })
+    qrData.addEventListener('input', () => {
+        qrCode.update(
+            {data: qrData.value}
+        )
     })
     qrDotsStyleBtn.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -102,5 +109,42 @@ export function InitQrCode() {
         })
     })
 
+    qrBgColor.addEventListener('change', () => {
+        qrCode.update({
+            backgroundOptions: {
+                color: qrBgColor.value,
+            }
+        })
+    })
+
+    document.querySelector("#qr-logo-input").addEventListener("change", (event) => {
+        const file = event.target.files[0];
+        if (!file) {
+            showAlert("No file selected.")
+            return
+        }
+        if (!file.type.startsWith('image/')) {
+        showAlert("Please select a valid image file.");
+        return;
+    }
+        const reader = new FileReader();
+
+
+        reader.onload = () => {
+            const logo = document.getElementById('logo-output')
+            console.log(reader.result)
+            qrCode.update({
+                image: reader.result
+            })
+        };
+        reader.onerror = function () {
+            showAlert('Error reading file')
+            console.error("Error reading file");
+        };
+        reader.readAsDataURL(file);
+    })
+
 }
+
+
 

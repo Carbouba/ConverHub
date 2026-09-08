@@ -17,7 +17,7 @@ const qrLogo = document.querySelector('#qr-logo-input')
 const downloadBtn = document.querySelector('#qr-download-btn')
 let qrCode
 
-function switchBtn(id, section) {
+function switchStyleBtn(id, section) {
     document.querySelectorAll(`#${section} button`).forEach(btn => {
         btn.classList.remove('active')
     })
@@ -170,7 +170,7 @@ export function InitQrCode() {
         btn.addEventListener('click', () => {
             const sectionId = document.querySelector('#qr-corners-dots-style').id
             const targetId = btn.id
-            switchBtn(targetId, sectionId)
+            switchStyleBtn(targetId, sectionId)
         })
     })
 

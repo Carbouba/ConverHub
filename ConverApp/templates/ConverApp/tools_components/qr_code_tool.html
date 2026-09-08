@@ -1,4 +1,4 @@
-<section id="qr-generator-page" class="page" style="display: none;">
+<section id="qr-generator" class="page" style="display: none;">
 
     <!-- Titre de l'outil avec le liseré vert ConverHub -->
     <div style="margin-bottom: 24px;">
@@ -19,13 +19,13 @@
             <!-- Zone de saisie du contenu -->
             <div style="display: flex; flex-direction: column; gap: 6px;">
                 <label class="ch-label">Contenu du QR Code *</label>
-                <input type="text" id="qr-data-input" class="ch-input" placeholder="https://votresite.com ou texte..." value="https://converhub.com">
+                <input type="text" id="qr-data-input" class="ch-input" placeholder="https://votresite.com ou texte..." value="">
             </div>
 
             <!-- Nom du fichier -->
             <div style="display: flex; flex-direction: column; gap: 6px;">
                 <label class="ch-label">Nom du fichier d'export</label>
-                <input type="text" id="qr-filename-input" class="ch-input" placeholder="converhub-qr" value="converhub-qr">
+                <input type="text" id="qr-filename-input" class="ch-input" placeholder="converhub-qr" value="">
             </div>
 
             <!-- Boîte d'aperçu en direct du QR Code -->
@@ -44,7 +44,7 @@
                     <option value="jpeg">JPEG</option>
                 </select>
 
-                <!-- Bouton d'exportation vert ConverHub -->
+                <!-- Bouton d'exportation  -->
                 <button id="qr-download-btn" class="ch-btn ch-btn-primary" style="flex: 1; border-radius: var(--ch-radius-field);">
                     <i class="fa-solid fa-download"></i> Télécharger
                 </button>
@@ -59,9 +59,9 @@
             <div style="display: flex; flex-direction: column; gap: 8px;">
                 <span class="ch-label">Style des points</span>
                 <div class="ch-tabs" style="display: flex; gap: 4px;" id="qr-dots-style">
-                    <button type="button" class="ch-tab active" data-style="rounded">Arrondi</button>
-                    <button type="button" class="ch-tab" data-style="dots">Points</button>
-                    <button type="button" class="ch-tab" data-style="square">Carré</button>
+                    <button id="dot-rounded" type="button" class="ch-tab " data-style="rounded">Arrondi</button>
+                    <button id="dot-dots" type="button" class="ch-tab" data-style="dots">Points</button>
+                    <button id="dot-square" type="button" class="ch-tab" data-style="square">Carré</button>
                 </div>
 
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 4px;">
@@ -72,13 +72,29 @@
 
             <hr style="border: none; border-top: 1px solid var(--ch-line); margin: 0;">
 
-            <!-- SECTION 2 : COINS CARRÉS (Cadres des yeux) -->
+            <!-- SECTION 2 : COINS CARRÉS Exterieur-->
             <div style="display: flex; flex-direction: column; gap: 8px;">
-                <span class="ch-label">Coins extérieurs (Cadres)</span>
+                <span class="ch-label">Coins extérieurs</span>
                 <div class="ch-tabs" style="display: flex; gap: 4px;" id="qr-corners-style">
-                    <button type="button" class="ch-tab active" data-style="extra-rounded">Arrondi</button>
-                    <button type="button" class="ch-tab" data-style="dot">Point</button>
-                    <button type="button" class="ch-tab" data-style="square">Carré</button>
+                    <button id="corners-extra-rounded" type="button" class="ch-tab " data-style="extra-rounded">Arrondi</button>
+                    <button id="corners-dot" type="button" class="ch-tab" data-style="dot">Point</button>
+                    <button id="corners-square" type="button" class="ch-tab" data-style="square">Carré</button>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 4px;">
+                    <span style="font-size: 0.85rem; font-weight: 600;">Couleur des points</span>
+                    <input type="color" id="qr-corners-color" value="#16181d" style="width: 44px; height: 32px; border: none; border-radius: 8px; cursor: pointer; background: transparent;">
+                </div>
+            </div>
+            <!-- SECTION 3 : COINS CARRÉS Interieur -->
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <span class="ch-label">POINT DES COINS intérieur</span>
+                <div class="ch-tabs" style="display: flex; gap: 4px;" id="qr-corners-dots-style">
+                    <button id="corners-dot-dot" type="button" class="ch-tab " data-style="dot">Point</button>
+                    <button id="corners-dot-square" type="button" class="ch-tab" data-style="square">Carré</button>
+                </div>
+                 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 4px;">
+                    <span style="font-size: 0.85rem; font-weight: 600;">Couleur des points</span>
+                    <input type="color" id="qr-corners-dots-color" value="#16181d" style="width: 44px; height: 32px; border: none; border-radius: 8px; cursor: pointer; background: transparent;">
                 </div>
             </div>
 
@@ -96,9 +112,23 @@
             <div style="display: flex; flex-direction: column; gap: 8px;">
                 <span class="ch-label">Logo au centre</span>
                 <input type="file" id="qr-logo-input" accept="image/*" class="ch-input" style="padding: 8px; font-size: 0.8rem;">
+                <img src="" alt="" id="logo-output">
             </div>
 
         </div>
 
     </div>
 </section>
+{#{% load static %}#}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>QR Code Styling</title>#}
+{#    <script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>#}
+{#    <script type="text/javascript" src="{% static "ConverApp/js/tools/qrcode.js" %}" defer></script>#}
+{#</head>#}
+{#<body>#}
+{#<div id="canvas"></div>#}
+{#</body>#}
+{#</html>#}

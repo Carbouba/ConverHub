@@ -1,10 +1,5 @@
-import locale
 
-from decouple import config
-
-locale.setlocale(locale.LC_TIME, "fr_FR.UTF-8")
 import requests
-from datetime import datetime
 
 
 # Ce fichier regroupe les appels HTTP vers l'API OpenWeatherMap:

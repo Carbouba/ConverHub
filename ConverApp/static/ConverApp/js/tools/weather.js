@@ -67,6 +67,7 @@ async function checkWeather(cityName) {
                 document.querySelector("#visibility").innerHTML = data.visibility / 1000 + " Km"
                 const iconDescription = data.weather[0].main
                 console.log(iconDescription)
+                console.log(data)
                 weatherIcon.classList.add('ch-animate-in')
                 weatherIcon.src = weatherIcons[iconDescription] || "/static/ConverApp/weather-images/cloudy.svg"
 

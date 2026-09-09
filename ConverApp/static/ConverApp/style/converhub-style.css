@@ -56,7 +56,7 @@ html {
     -moz-osx-font-smoothing: grayscale;
 }
 
-body{
+body {
     margin: 0;
     font-family: var(--ch-font-ui);
     font-size: 1rem;
@@ -118,9 +118,10 @@ p {
     text-transform: uppercase;
     color: var(--ch-muted-soft);
 }
+
 .ch-dropdown:hover .ch-dropdown-menu {
-        display: block !important;
-    }
+    display: block !important;
+}
 
 /* ─── Header  ─── */
 .ch-navbar-pill {
@@ -137,27 +138,29 @@ p {
 
     /* Glassmorphism */
     background: rgba(255, 255, 255, 0.72); /* Blanc translucide */
-    backdrop-filter: blur(16px);            /* Flou de verre prononcé */
-    -webkit-backdrop-filter: blur(16px);    /* Compatibilité Safari / Apple */
+    backdrop-filter: blur(16px); /* Flou de verre prononcé */
+    -webkit-backdrop-filter: blur(16px); /* Compatibilité Safari / Apple */
     border: 1.5px solid rgba(255, 255, 255, 0.8); /* Reflet lumineux sur la bordure */
 
     /* L'ombre douce d'élévation "flottante" */
     box-shadow: 0 12px 32px -8px rgba(16, 24, 32, 0.08),
-                0 2px 6px rgba(16, 24, 32, 0.03);
+    0 2px 6px rgba(16, 24, 32, 0.03);
 
     display: flex;
     align-items: center;
     justify-content: space-between;
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-nav a{
+
+nav a {
     text-decoration: none;
 }
+
 @keyframes bouncing {
-   0%{
-       transform: scale(95%);
-   }
-    100%{
+    0% {
+        transform: scale(95%);
+    }
+    100% {
         transform: scale(100%);
     }
 }
@@ -265,6 +268,7 @@ nav a{
     font-size: 14px;
     font-weight: 500;
 }
+
 .ch-alert-icon {
     font-size: 1.1rem;
 }
@@ -299,6 +303,9 @@ nav a{
     display: flex;
     flex-direction: column;
     gap: 4px;
+    /*position: sticky; */
+    /*top: 0;*/
+    /*height: 100vh;  */
 }
 
 
@@ -390,7 +397,7 @@ nav a{
 .ch-main {
     background: var(--ch-page);
     padding: 28px;
-    overflow: auto;
+    /*overflow: auto;*/
 }
 
 /* ─── Carte ──────────────────────────────────────────────────────────────── */
@@ -410,6 +417,7 @@ nav a{
     transition: transform 0.3s ease;
 
 }
+
 .ch-card-sm:hover {
     box-shadow: var(--ch-shadow-card);
     transform: scale(1);
@@ -652,14 +660,16 @@ nav a{
 .active-item:hover {
     transform: translateX(10px);
 }
+
 aside span i {
-        color: var(--ch-accent);
-    }
+    color: var(--ch-accent);
+}
 
 .action-btn.active-page-tab {
     aside span i {
         color: var(--ch-ink);
     }
+
     background: var(--ch-accent-soft);
     color: var(--ch-accent);
     font-weight: 700;
@@ -801,7 +811,6 @@ aside span i {
 }
 
 
-
 /* ─── Animations ─────────────────────────────────────────────────────────── */
 
 @keyframes ch-fadeIn {
@@ -818,6 +827,7 @@ aside span i {
 .ch-animate-in {
     animation: ch-fadeIn 0.4s ease both;
 }
+
 /* ─── Carte élargie pour le Studio QR Code ─── */
 .ch-container-wide {
     width: 100%;
@@ -888,9 +898,10 @@ aside span i {
 /* =========================================================
    OUTIL MÉTÉO (CONVERHUB WEATHER STUDIO) — Mobile-First
    ========================================================= */
-#weather-container{
+#weather-container {
     display: none;
 }
+
 /* Barre de recherche de ville */
 .weather-search-bar {
     display: flex;
@@ -908,7 +919,7 @@ aside span i {
     background: #ffffff;
     /* Dégradé doux : halo jaune/orangé subtil à droite, blanc pur à gauche */
     background: radial-gradient(circle at 85% 60%, rgb(238 241 244) 0%, rgba(255, 255, 255, 0.9) 60%),
-                linear-gradient(135deg, #ffffff 0%, #f9fbfa 100%);
+    linear-gradient(135deg, #ffffff 0%, #f9fbfa 100%);
     /*border: 1.5px solid var(--ch-line);*/
     border-radius: var(--ch-radius-card);
     padding: 28px 24px;
@@ -1049,10 +1060,11 @@ aside span i {
     font-size: 1.5rem;
     color: var(--ch-accent);
     transform: rotate(45deg);
-   /* Orientation boussole */
+    /* Orientation boussole */
 }
+
 #wind-dir-icon.animate {
-     transition: transform .3s ease;
+    transition: transform .3s ease;
 }
 
 #weather-icon {
@@ -1061,7 +1073,8 @@ aside span i {
     object-fit: contain;
     filter: drop-shadow(0 10px 20px rgba(245, 158, 11, 0.25)); /* Le halo lumineux chaleureux ! */
 }
-.up{
+
+.up {
     transform: rotate(505deg);
 }
 
@@ -1070,12 +1083,12 @@ aside span i {
     .weather-temp-val {
         font-size: 3.6rem;
     }
+
     .weather-icon {
         width: 75px;
         height: 75px;
     }
 }
-
 
 
 /*==============================================================================================*/
@@ -1086,13 +1099,13 @@ aside span i {
 .ch-landing-wrapper {
     width: 100%;
     /*overflow-x: hidden;*/
-     background: radial-gradient(ellipse 90% 50% at 50% 0%, var(--ch-accent-soft) 0%, #ffffff 65%);
+    background: radial-gradient(ellipse 90% 50% at 50% 0%, var(--ch-accent-soft) 0%, #ffffff 65%);
 }
 
 /* ─── Hero & Background ─────────────────────────────────── */
 .ch-hero {
     padding: 20px 20px 60px; /* Moins de padding en haut ! */
-    background: transparent;  /* Le dégradé vient du parent */
+    background: transparent; /* Le dégradé vient du parent */
     text-align: center;
     position: relative;
 }
@@ -1172,6 +1185,29 @@ aside span i {
     box-shadow: 0 24px 60px -15px rgba(16, 24, 32, 0.15);
 }
 
+/*@keyframes grow-onscroll {*/
+/*    0% {*/
+/*        max-width: 500px;*/
+/*    }*/
+/*    50% {*/
+/*        max-width: 700px;*/
+/*    }*/
+/*    100% {*/
+/*        max-width: 850px;*/
+/*    }*/
+/*}*/
+
+/*.grow-onscroll {*/
+/*    animation-name: grow-onscroll;*/
+/*    animation-duration: .3s;*/
+/*    animation-play-state: paused;*/
+/*}*/
+/*#feature-screen {*/
+/*    width: 100%;*/
+/*    max-width: 500px;*/
+/*    height: auto;*/
+/*}*/
+
 .ch-frame-header {
     background: #f1f5f9;
     border-radius: 12px 12px 0 0;
@@ -1239,8 +1275,12 @@ aside span i {
 
 /* ─── Badges Flottants ─────────────────────────────────── */
 @keyframes ch-float-slow {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-8px); }
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
 }
 
 .ch-float-badge {
@@ -1258,9 +1298,17 @@ aside span i {
     animation: ch-float-slow 4s ease-in-out infinite;
 }
 
-.ch-float-1 { animation-delay: 0s; }
-.ch-float-2 { animation-delay: 1.5s; }
-.ch-float-3 { animation-delay: 0.8s; }
+.ch-float-1 {
+    animation-delay: 0s;
+}
+
+.ch-float-2 {
+    animation-delay: 1.5s;
+}
+
+.ch-float-3 {
+    animation-delay: 0.8s;
+}
 
 .ch-float-icon {
     width: 26px;
@@ -1280,9 +1328,10 @@ aside span i {
 
 /* ─── Sections Standard ────────────────────────────────── */
 .ch-section-state {
-    padding: 0  20px 10px;
+    padding: 0 20px 10px;
     margin-bottom: -55px;
 }
+
 .ch-section {
     padding: 80px 20px;
 }
@@ -1421,11 +1470,32 @@ aside span i {
 
 /* ─── Responsive Mobile-First ───────────────────────────── */
 @media (max-width: 768px) {
-    .ch-header-links { display: none !important; }
-    .ch-frame-mobile { display: none; }
-    .ch-float-badge { display: none; }
-    .ch-why-grid { grid-template-columns: 1fr; gap: 36px; }
-    .ch-stats-grid { grid-template-columns: repeat(2, 1fr); }
-    .ch-hero { padding: 90px 16px 40px; }
-    .ch-section { padding: 48px 16px; }
+    .ch-header-links {
+        display: none !important;
+    }
+
+    .ch-frame-mobile {
+        display: none;
+    }
+
+    .ch-float-badge {
+        display: none;
+    }
+
+    .ch-why-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .ch-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ch-hero {
+        padding: 90px 16px 40px;
+    }
+
+    .ch-section {
+        padding: 48px 16px;
+    }
 }

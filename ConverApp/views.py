@@ -21,6 +21,7 @@ def tools(request, tool):
         'tool': tool,
     })
 
+
 @require_GET
 def get_weather(request):
     city = request.GET.get('city')
@@ -28,12 +29,11 @@ def get_weather(request):
     try:
         coordonnee = get_coordinates(city, api_key)
     except requests.exceptions.RequestException as e:
-        return JsonResponse({'error': 'Erreur API externe'}, status=502)
+        return JsonResponse({'error': 'Impossible de trouver la ville'}, status=500)
     # # Obtension des coordonnées par nom de ville
 
     l_at = coordonnee[0]
     l_on = coordonnee[1]
-    country = coordonnee[2]
 
     try:
         current_weather = get_current_weather(l_at, l_on, api_key)

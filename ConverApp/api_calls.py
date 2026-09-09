@@ -49,35 +49,11 @@ def get_current_weather(lat, lon, api_key):
     reponse = requests.get(url, params=params)
 
     data = reponse.json()
-    #
-    # # Champs utiles dans la reponse JSON.
-    # name = data["name"]
-    # temp = data["main"]["temp"]
-    # humidity = data["main"]["humidity"]
-    # dt = data["dt"]
-    # wind = data["wind"]["speed"]
-    #
-    # # Conversion du timestamp Unix (dt) en date lisible (YYYY-MM-DD).
-    # date = datetime.fromtimestamp(dt).strftime("%Y-%m-%d")
-    # date_labl = datetime.fromtimestamp(dt).strftime("%a, %d %B %Y à %H:%M:%S")
-    #
-    # # "mesure" est une liste dans un ordre fixe utilise par queries.py
-    # # (city, temp, humidity, dt, date).
-    # mesure = [name, temp, humidity, dt, date, wind]
+
+    if not data:
+        return None
 
     return data
-
-# get_coordinates("niamey", "56269a58b30f0552429caf704b7d9db3")
-coordonnee = get_coordinates("Niamey", "56269a58b30f0552429caf704b7d9db3")
-
-# `get_coordinates` renvoie [lat, lon]
-l_at = coordonnee[0]
-l_on = coordonnee[1]
-country = coordonnee[2]
-
-Current_Weather = get_current_weather(l_at, l_on, "56269a58b30f0552429caf704b7d9db3")
-print(Current_Weather)
-
 
 
 

@@ -37,14 +37,13 @@
                 <span><i class="fa-solid fa-ruler"></i></span> Distance
             </button>
 
-            <button class="ch-nav-item disabled" data-page="weather" id="WEATHER">
-                <span><i class="fa-solid fa-cloud"></i></span> Meteo<span
-                    class="ch-badge ch-badge-muted" style="margin-left: auto; font-size: 0.6rem;">BIENTÔT</span>
+            <button class="ch-nav-item action-btn active-item" data-page="weather" id="WEATHER">
+                <span><i class="fa-solid fa-cloud-sun"></i></span> Meteo<span class="ch-badge ch-badge-amber" style="margin-left: auto; font-size: 0.6rem; color: var(--ch-ink)">NOUVEAUTÉ</span>
             </button>
 
             <div class="ch-nav-category ">Image</div>
             <button class="ch-nav-item action-btn active-item" data-page="qr-generator" id="QR">
-                <span><i class="fa-solid fa-qrcode"></i></span>Générateur de QR Code
+                <span><i class="fa-solid fa-qrcode"></i></span>Générateur de QR Code<span class="ch-badge ch-badge-teal" style="margin-left: auto; font-size: 0.6rem; color: var(--ch-ink)">NOUVEAUTÉ</span>
             </button>
 
 
@@ -72,6 +71,9 @@
 
                 <!-- ==================== GÉNÉRATEUR DE QR CODE ==================== -->
                 {% include "ConverApp/tools_components/qr_code_tool.html" %}
+
+                <!-- ==================== METEO ==================== -->
+                {% include "ConverApp/tools_components/weather.html" %}
             </div>
         </main>
     </div>

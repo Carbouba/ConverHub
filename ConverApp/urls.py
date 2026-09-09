@@ -11,5 +11,6 @@ urlpatterns = [
     path('tools/<str:tool>/', views.tools, name = 'tools'),
     path('', views.home, name = 'home'),
     path('api/convert/', views.convert_currency, name = 'convert_currency'),
-    path('api/symbols/', views.get_symbols, name = 'currency_symbols')
+    path('api/symbols/', views.get_symbols, name = 'currency_symbols'),
+    path("api/weather/", views.get_weather, name = 'get_weather'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

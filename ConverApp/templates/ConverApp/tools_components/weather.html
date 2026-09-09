@@ -1,10 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% load static %}
+<section id="weather" class="page" style="display: none;">
 
-</body>
-</html>
+    <div class="weather-search-bar">
+        <input type="text" id="search-input" class="ch-input" placeholder="Rechercher une ville (ex: Paris, Niamey)...">
+        <button type="button" id="search-btn" class="ch-btn ch-btn-primary">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+    </div>
+
+    <!-- Message d'erreur (masqué par défaut) -->
+    <div class="error" id="error"
+         style="display: none; color: #ef4444; font-size: 0.8rem; font-weight: 600; margin-top: -12px; margin-bottom: 12px; text-align: center;">
+        Ville introuvable. Veuillez réessayer.
+    </div>
+
+    <div id="weather-container">
+        <!-- ☀️ 2. LA GRANDE CARTE MÉTÉO HERO (Conforme à ta maquette) -->
+        <div class="weather-hero-card ch-animate-in">
+
+            <!-- Ligne supérieure : Ville, Date & Badge de condition -->
+            <div class="weather-header-row">
+                <div>
+                    <span id="state"></span>
+                    <div style="display: flex; align-items: center">
+                        <h2 id="city" class="city weather-city"></h2>
+                        <h2 id="country"></h2>
+                    </div>
+                    <p id="weather-date" class="weather-date"></p>
+                </div>
+
+                <!-- Badge de condition avec icône -->
+                <div class="weather-condition-badge">
+{#                    <span id="description-icon" class="weather-badge-icon"><i class="fa-solid fa-cloud"#}
+{#                                                        style="color: rgb(255, 255, 255);"></i></span>#}
+                    <img id="description-icon" src="" alt="" style="width: 50px; height: 50px;">
+                    <span id="condition-description" class="condition-description"> </span>
+                </div>
+            </div>
+
+            <!-- Ligne centrale : Température, Min/Max & Grande Icône Météo -->
+            <div class="weather-body-row">
+
+                <!-- Bloc Température à gauche -->
+                <div class="weather-temp-group">
+                    <span id="temp" class="temp weather-temp-val"></span>
+
+                    <!-- Les flèches Min / Max empilées -->
+                    <div class="weather-minmax">
+                        <div><span style="color: #f59e0b;" class="up">&uarr;</span> <span id="temp-max" ></span> Max.</div>
+                        <div><span style="color: #06b6d4;">&darr;</span> <span id="temp-min"></span> Min.</div>
+                    </div>
+                </div>
+
+                <!-- Grande Illustration météo à droite (avec effet de halo lumineux) -->
+                <div class="weather-icon-wrapper" style="min-width: 110px; min-height: 110px; margin-right: 10px;">
+                    <img id="weather-icon" src="" alt="Condition Météo">
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="weather-metrics-grid ch-animate-in">
+
+            <!-- Carte 1 : VENT -->
+            <div class="ch-card-sm weather-subcard">
+                <div class="ch-label" style="display: flex; align-items: center"><img
+                        src="{% static "ConverApp/weather-images/wind.svg" %}" alt="" style="width: 2rem"> Vent
+                </div>
+                <div class="weather-subcard-val">
+                    <span id="wind"></span>
+                    <span id="wind-dir-icon"><i class="fa-solid fa-location-arrow"></i></span>
+                </div>
+                <span class="weather-subcard-sub text-slate-400">Direction NO</span>
+            </div>
+
+            <!-- Carte 2 : HUMIDITÉ -->
+            <div class="ch-card-sm weather-subcard">
+                <div class="ch-label" style="display: flex; align-items: center"><img
+                        src="{% static "ConverApp/weather-images/fog.svg" %}" alt="" style="width: 3rem"> Humidité
+                </div>
+                <div id="humidity" class="weather-subcard-val humidity"></div>
+                <span class="weather-subcard-sub text-slate-400">Point de rosée 16°</span>
+            </div>
+
+            <!-- Carte 3 : VISIBILITÉ -->
+            <div class="ch-card-sm weather-subcard">
+                <div class="ch-label"><i class="fa-solid fa-eye" style="color: #8b5cf6; width: 2rem"></i> Visibilité
+                </div>
+                <div id="visibility" class="weather-subcard-val visibility"></div>
+                <span class="weather-subcard-sub text-slate-400">Vue dégagée</span>
+            </div>
+
+        </div>
+    </div>
+
+</section>

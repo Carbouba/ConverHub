@@ -1,0 +1,28 @@
+{% load static %}
+<footer class="ch-landing-footer">
+
+    <!-- 1. BLOC GAUCHE : Marque & Logo -->
+    <div class="ch-footer-brand">
+        <a href="{% url 'home' %}" style="display: flex; align-items: center; gap: 8px;">
+            <img src="{% static 'ConverApp/Brand images/logo-dark.png' %}" alt="ConverHub Logo" style="height: 28px; width: auto;">
+        </a>
+    </div>
+
+    <!-- 2. BLOC CENTRAL : Les Liens Secondaires -->
+    <nav class="ch-footer-links" aria-label="Liens de pied de page">
+        <a href="#tools-section">Outils</a>
+        <div><i class="fa-brands fa-github"></i> <a href="https://github.com/Carbouba/Currency_Converter.git" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+        <a href="#">Contact</a>
+        <a href="#">Confidentialité</a>
+    </nav>
+
+    <!-- 3. BLOC DROIT : Le Copyright officiel -->
+    <div class="ch-footer-copy">
+        <p>
+                &copy; {% now "Y" %}
+                &mdash; ConverHub.
+                Conçu avec ❤️ by <a style="color: var(--ch-muted)" href="https://github.com/Carbouba" target="_blank" rel="noopener noreferrer">Carbouba</a>
+            </p>
+    </div>
+
+</footer>

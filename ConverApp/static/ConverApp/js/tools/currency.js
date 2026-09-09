@@ -19,7 +19,7 @@ const today = new Date();
 * all symboles and code of currencies.
 * Then it create the option of select input using data that she
 * get since API.*/
-    async function getCurrencySelects() {
+async function getCurrencySelects() {
 
 
         try {
@@ -78,7 +78,7 @@ async function convert(BASE_CODE, TARGET_CODE, AMOUNT) {
                 secondInput.value = `${data.conversion.toFixed(2)} ${data.target}`
                 baseMeta.innerHTML = `${data.amount} ${data.source} = `
                 targetMeta.innerHTML = `${data.conversion.toFixed(2)} ${data.target}`
-                exchangeRate.innerHTML = `Taux de change : 1 ${data.source} = ${data.rate} ${data.target}`
+                exchangeRate.innerHTML = `Taux de change : 1 ${data.source} = ${data.rate} ${data.target} Taux indicatifs`
                 updateAt.innerHTML = `Dernier mise a jour le : ${data.date}`
                 // updateAt.innerHTML = `Dernier mise a jour le : ${today.toLocaleDateString('fr-FR', {
                 //     day: '2-digit',

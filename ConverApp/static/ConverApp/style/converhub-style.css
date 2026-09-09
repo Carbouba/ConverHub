@@ -129,7 +129,7 @@ p {
     z-index: 1000;
     width: calc(100% - 40px); /* Laisse une marge naturelle de 20px de chaque côté */
     max-width: 980px; /* Largeur optimale pour l'équilibre visuel */
-    margin: 18px auto 24px;
+    margin: 0 auto 24px;
     padding: 10px 24px;
 
     /* La forme de pilule parfaite */
@@ -149,6 +149,9 @@ p {
     align-items: center;
     justify-content: space-between;
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+nav a{
+    text-decoration: none;
 }
 @keyframes bouncing {
    0%{

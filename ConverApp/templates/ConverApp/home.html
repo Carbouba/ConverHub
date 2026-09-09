@@ -140,6 +140,7 @@
 
                 <!-- Outil 3 : QR Code (Actif) -->
                 <a href="{% url 'tools' 'qr-generator' %}" class="ch-card-sm ch-tool-link">
+                    <span class="ch-badge ch-badge-teal" style="margin-left: auto; font-size: 0.6rem; color: var(--ch-ink)">NOUVEAUTÉ</span>
                     <div class="ch-tool-icon" style="background: var(--ch-accent-soft); color: var(--ch-accent);"><i class="fa-solid fa-qrcode"></i></div>
                     <h3 style="font-size: 1.1rem; margin-bottom: 6px;">Générateur de QR Code</h3>
                     <p style="font-size: 0.82rem; color: var(--ch-muted); margin: 0;">Créez et personnalisez des QR codes vectoriels pour vos impressions.</p>
@@ -147,6 +148,7 @@
 
                 <!-- Outil 4 : Météo (Actif) -->
                 <a href="{% url 'tools' 'weather' %}" class="ch-card-sm ch-tool-link">
+                    <span class="ch-badge ch-badge-amber" style="margin-left: auto; font-size: 0.6rem; color: var(--ch-ink)">NOUVEAUTÉ</span>
                     <div class="ch-tool-icon"  style="background: #fef3c7; color: #d97706;"><i class="fa-solid fa-cloud-sun"></i></div>
                     <h3 style="font-size: 1.1rem; margin-bottom: 6px;">Météo en direct</h3>
                     <p style="font-size: 0.82rem; color: var(--ch-muted); margin: 0;">Conditions actuelles, températures min/max, vent et humidité.</p>
@@ -184,9 +186,9 @@
                 <!-- Colonne Gauche : Le manifeste -->
                 <div>
                     <span class="ch-label" style="color: var(--ch-accent);">POURQUOI</span>
-                    <h2 style="font-size: 2.2rem; font-weight: 800; margin: 12px 0 16px;">Simple d'accès.<br>Précis quand il le faut.</h2>
+                    <h2 style="font-size: 2.2rem; font-weight: 800; margin: 12px 0 16px;">Simple d'accès.<br>Rapide directement utilisable.</h2>
                     <p style="color: var(--ch-muted); line-height: 1.7; font-size: 1rem;">
-                        Pas de compte obligatoire pour les calculs de base, pas de publicité intrusive, et une vitesse d'exécution instantanée directement dans votre navigateur.
+                        Pas de compte obligatoire pour les calculs de base, et une vitesse d'exécution instantanée directement dans votre navigateur.
                     </p>
 
                     <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 32px;">
@@ -214,16 +216,19 @@
                         <h4 style="margin: 0 0 4px; font-size: 0.95rem;">Multi-devises</h4>
                         <p style="margin: 0; font-size: 0.8rem;">Taux mondiaux mis à jour régulièrement.</p>
                     </div>
+
                     <div class="ch-card-sm" style="border: 1.5px solid var(--ch-line);">
                         <div style="font-size: 1.6rem; margin-bottom: 10px;"><i class="fa-solid fa-mobile-screen" style="color: rgb(0 0 0);"></i></div>
                         <h4 style="margin: 0 0 4px; font-size: 0.95rem;">Mobile-First</h4>
                         <p style="margin: 0; font-size: 0.8rem;">Conçu pour être utilisé d'une seule main.</p>
                     </div>
-{#                    <div class="ch-card-sm">#}
-{#                        <div style="font-size: 1.6rem; margin-bottom: 10px;">🖨️</div>#}
-{#                        <h4 style="margin: 0 0 4px; font-size: 0.95rem;">Orienté Print</h4>#}
-{#                        <p style="margin: 0; font-size: 0.8rem;">Formats et unités adaptés aux métiers de l'impression.</p>#}
-{#                    </div>#}
+
+                    <div class="ch-card-sm" style="border: 1.5px solid var(--ch-line);">
+                        <div style="font-size: 1.6rem; margin-bottom: 10px;">🖨️</div>
+                        <h4 style="margin: 0 0 4px; font-size: 0.95rem;">100% </h4>
+                        <p style="margin: 0; font-size: 0.8rem;">Gratuit &amp; Open-Source</p>
+                    </div>
+
                     <div class="ch-card-sm" style="border: 1.5px solid var(--ch-line);">
                         <div style="font-size: 1.6rem; margin-bottom: 10px;"><i class="fa-solid fa-rocket" style="color: rgb(0, 0, 0);"></i></div>
                         <h4 style="margin: 0 0 4px; font-size: 0.95rem;">Zéro installation</h4>

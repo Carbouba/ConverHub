@@ -129,7 +129,7 @@ p {
     z-index: 1000;
     width: calc(100% - 40px); /* Laisse une marge naturelle de 20px de chaque côté */
     max-width: 980px; /* Largeur optimale pour l'équilibre visuel */
-    margin: 18px auto 48px;
+    margin: 18px auto 24px;
     padding: 10px 24px;
 
     /* La forme de pilule parfaite */
@@ -1035,4 +1035,354 @@ footer, .ch-footer {
         width: 75px;
         height: 75px;
     }
+}
+
+
+
+/*==============================================================================================*/
+/* =========================================================
+   CONVERHUB — NOUVELLE LANDING PAGE SAAS (PURE CSS)
+   ========================================================= */
+
+.ch-landing-wrapper {
+    width: 100%;
+    /*overflow-x: hidden;*/
+     background: radial-gradient(ellipse 90% 50% at 50% 0%, var(--ch-accent-soft) 0%, #ffffff 65%);
+}
+
+/* ─── Hero & Background ─────────────────────────────────── */
+.ch-hero {
+    padding: 20px 20px 60px; /* Moins de padding en haut ! */
+    background: transparent;  /* Le dégradé vient du parent */
+    text-align: center;
+    position: relative;
+}
+
+.ch-hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.ch-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: var(--ch-radius-pill);
+    background: var(--ch-accent-soft);
+    border: 1px solid var(--ch-accent-mid);
+    color: var(--ch-accent-dark);
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.ch-hero-badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--ch-accent);
+}
+
+.ch-hero-title {
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    margin-bottom: 20px;
+}
+
+.ch-hero-title span {
+    color: var(--ch-accent);
+}
+
+.ch-hero-desc {
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    color: var(--ch-muted);
+    max-width: 580px;
+    margin: 0 auto 36px;
+    line-height: 1.6;
+}
+
+.ch-hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+}
+
+/* ─── Zone des Écrans (Showcase) ────────────────────────── */
+.ch-showcase-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 24px;
+    margin-top: 40px;
+    padding: 20px 0;
+}
+
+/* Le cadre Desktop */
+.ch-frame-desktop {
+    width: 100%;
+    max-width: 580px;
+    background: #e2e8f0;
+    border-radius: 20px;
+    padding: 10px 10px 0;
+    box-shadow: 0 24px 60px -15px rgba(16, 24, 32, 0.15);
+}
+
+.ch-frame-header {
+    background: #f1f5f9;
+    border-radius: 12px 12px 0 0;
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ch-frame-dots {
+    display: flex;
+    gap: 5px;
+}
+
+.ch-frame-dots span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #cbd5e1;
+}
+
+.ch-frame-url {
+    flex: 1;
+    background: #ffffff;
+    border-radius: 6px;
+    padding: 2px 10px;
+    font-family: var(--ch-font-mono);
+    font-size: 0.7rem;
+    color: var(--ch-muted);
+    text-align: left;
+}
+
+.ch-frame-screen {
+    background: var(--ch-page);
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+    min-height: 220px;
+}
+
+/* Le cadre Mobile */
+.ch-frame-mobile {
+    width: 160px;
+    background: #0f172a;
+    border-radius: 28px;
+    padding: 10px 6px;
+    box-shadow: 0 24px 50px -10px rgba(16, 24, 32, 0.25);
+    margin-bottom: 20px;
+    flex-shrink: 0;
+}
+
+.ch-phone-notch {
+    width: 40px;
+    height: 5px;
+    background: #334155;
+    border-radius: 999px;
+    margin: 0 auto 8px;
+}
+
+.ch-phone-screen {
+    background: var(--ch-page);
+    border-radius: 20px;
+    overflow: hidden;
+    height: 240px;
+}
+
+/* ─── Badges Flottants ─────────────────────────────────── */
+@keyframes ch-float-slow {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+}
+
+.ch-float-badge {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--ch-line);
+    padding: 6px 14px;
+    border-radius: var(--ch-radius-pill);
+    box-shadow: 0 10px 25px -5px rgba(16, 24, 32, 0.1);
+    z-index: 10;
+    animation: ch-float-slow 4s ease-in-out infinite;
+}
+
+.ch-float-1 { animation-delay: 0s; }
+.ch-float-2 { animation-delay: 1.5s; }
+.ch-float-3 { animation-delay: 0.8s; }
+
+.ch-float-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+}
+
+.ch-float-text {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--ch-ink);
+}
+
+/* ─── Sections Standard ────────────────────────────────── */
+.ch-section {
+    padding: 80px 20px;
+}
+
+.ch-section-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Grille des outils */
+.ch-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.ch-tool-link {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    border: 1.5px solid var(--ch-line);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.ch-tool-link:hover {
+    transform: translateY(-2px);
+    border-color: var(--ch-accent);
+    box-shadow: 0 12px 30px -8px rgba(30, 142, 90, 0.15);
+}
+
+.ch-tool-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 14px;
+}
+
+.ch-tool-soon {
+    position: relative;
+    background: #f8fafc;
+    border: 1.5px solid #f1f5f9;
+}
+
+.ch-soon-tag {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    font-size: 0.65rem;
+}
+
+.ch-icon-dim {
+    background: #e2e8f0;
+    filter: grayscale(1);
+    opacity: 0.5;
+}
+
+.ch-dim-title {
+    color: var(--ch-muted);
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+}
+
+.ch-dim-desc {
+    color: var(--ch-muted-soft);
+    font-size: 0.82rem;
+    margin: 0;
+}
+
+/* ─── Section "Pourquoi" (2 Colonnes) ──────────────────── */
+.ch-why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.ch-why-bullet {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--ch-accent-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.ch-features-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+/* ─── Grille des Stats ─────────────────────────────────── */
+.ch-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--ch-line);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--ch-line);
+}
+
+.ch-stat-item {
+    background: #ffffff;
+    padding: 28px 16px;
+    text-align: center;
+}
+
+.ch-stat-num {
+    font-family: var(--ch-font-brand);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--ch-accent);
+}
+
+.ch-stat-lbl {
+    font-size: 0.8rem;
+    color: var(--ch-muted);
+    margin-top: 4px;
+}
+
+/* ─── Boîte CTA Finale ─────────────────────────────────── */
+.ch-cta-box {
+    background: linear-gradient(135deg, var(--ch-accent) 0%, var(--ch-accent-dark) 100%);
+    border-radius: 28px;
+    padding: 56px 40px;
+    text-align: center;
+    box-shadow: 0 20px 40px -15px rgba(30, 142, 90, 0.35);
+}
+
+/* ─── Responsive Mobile-First ───────────────────────────── */
+@media (max-width: 768px) {
+    .ch-header-links { display: none !important; }
+    .ch-frame-mobile { display: none; }
+    .ch-float-badge { display: none; }
+    .ch-why-grid { grid-template-columns: 1fr; gap: 36px; }
+    .ch-stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .ch-hero { padding: 90px 16px 40px; }
+    .ch-section { padding: 48px 16px; }
 }

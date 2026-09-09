@@ -694,13 +694,7 @@ aside span i {
     gap: 16px;
     margin: 4px 0;
 }
-.ch-divider-footer {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    height: 1px;
-    background: var(--ch-line);
-}
+
 
 .ch-divider::before,
 .ch-divider::after {
@@ -738,28 +732,70 @@ aside span i {
 
 /* ─── Footer ─────────────────────────────────────────────────────────────── */
 
-.ch-footer {
-    padding-top: 32px;
-    padding-bottom: 16px;
+/* =========================================================
+   FOOTER SAAS DE LA LANDING PAGE (Mobile-First)
+   ========================================================= */
+/*.ch-divider-footer {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    gap: 16px;*/
+/*    height: 1px;*/
+/*    background: var(--ch-line);*/
+/*}*/
+/* 1. Sur Mobile : Empilement vertical centré */
+.ch-landing-footer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 36px 20px;
+    border-top: 1.5px solid var(--ch-line);
+    background: transparent;
+    display: flex;
+    flex-direction: column; /* Vertical sur smartphone ! */
+    align-items: center;
+    gap: 20px;
     text-align: center;
-    font-size: 0.90rem;
-    color: var(--ch-muted-soft);
+}
 
+/* Liens du footer */
+.ch-footer-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-footer, .ch-footer {
-  background: #f0fdf4;
+
+.ch-footer-links a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ch-muted);
+    text-decoration: none;
+    transition: color var(--ch-ease);
 }
-.ch-footer a {
+
+.ch-footer-links a:hover {
     color: var(--ch-accent);
-    text-decoration: underline;
-    font-weight: 600;
-
 }
 
-.ch-footer a:hover {
-    text-decoration: underline;
+/* Texte de copyright */
+.ch-footer-copy {
+    font-size: 0.78rem;
+    color: var(--ch-muted-soft);
 }
 
+/* 2. Sur Ordinateur : Déploiement horizontal parfait */
+@media (min-width: 769px) {
+    .ch-landing-footer {
+        flex-direction: row; /* Horizontal sur grand écran ! */
+        justify-content: space-between;
+        align-items: center;
+        padding: 40px 48px;
+    }
+
+    .ch-footer-links {
+        gap: 32px;
+    }
+}
 
 
 
@@ -1240,6 +1276,10 @@ footer, .ch-footer {
 }
 
 /* ─── Sections Standard ────────────────────────────────── */
+.ch-section-state {
+    padding: 0  20px 10px;
+    margin-bottom: -55px;
+}
 .ch-section {
     padding: 80px 20px;
 }

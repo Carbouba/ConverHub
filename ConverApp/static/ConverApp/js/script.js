@@ -15,17 +15,4 @@ document.addEventListener('DOMContentLoaded', () => {
     InitQrCode()
     initWeather()
 
-    // window.onscroll = () => {
-    //     const featureScreen = document.querySelector('#feature-screen')
-    //     // featureScreen.classList.add('grow-onscroll')
-    //     featureScreen.style.animationPlayState = 'running'
-    //     console.log('scrolled')
-    // }
-    window.addEventListener('scroll', () => {
-        const featureScreen = document.querySelector('#feature-screen')
-        // featureScreen.classList.add('grow-onscroll')
-        // featureScreen.style.animationPlayState = 'running'
-        console.log('scrolled')
-    })
-
 })

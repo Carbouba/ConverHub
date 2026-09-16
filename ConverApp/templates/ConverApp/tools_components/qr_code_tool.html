@@ -18,7 +18,7 @@
         <div style="display: flex; flex-direction: column; gap: 16px;">
 
             <!-- Zone de saisie du contenu -->
-            <div id="zone-url" style="display: none">
+            <div id="zone-url" >
                 <div style="display: flex; flex-direction: column; gap: 6px;">
                     <label class="ch-label">Contenu du QR Code *</label>
                     <input type="text" id="qr-data-input" class="ch-input"
@@ -31,7 +31,7 @@
                 {#                    <input type="text" id="qr-filename-input" class="ch-input" placeholder="converhub-qr" value="">#}
                 {#                </div>#}
             </div>
-            <div id="zone-wifi" style="gap: 16px;">
+            <div id="zone-wifi" style="display: none; gap: 16px;">
                 <div style="display: flex; flex-direction: column; gap: 6px;">
                     <label class="ch-label">Nom du réseaux (SSID)</label>
                     <input type="text" id="qr-wifi-n-input" class="ch-input" value="" placeholder="Nom du wifi">

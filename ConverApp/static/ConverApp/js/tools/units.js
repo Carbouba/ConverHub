@@ -8,13 +8,17 @@ let unitInput = document.querySelector('#unit-input')
 const UnitsCoeff = {
     'm': 1,
     'cm': 0.01,
-    'mm': 0.001
+    'mm': 0.001,
+    'inch': 0.0254,
+    'pixel': 0.0002645833
 }
 
 const unitsOptions = [
     {value: 'm', text: 'Mètre'},
     {value: 'cm', text: 'Centimètre'},
-    {value: 'mm', text: 'Millimètre'}
+    {value: 'mm', text: 'Millimètre'},
+    {value: 'inch', text: 'Pouces'},
+    {value: 'pixel', text: 'Pixel'}
 ];
 
 

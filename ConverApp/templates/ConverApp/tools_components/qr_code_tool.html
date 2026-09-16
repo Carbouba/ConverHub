@@ -6,7 +6,8 @@
             Générateur de QR Code
         </h2>
         <p style="font-size: 0.85rem; color: var(--ch-muted); margin: 4px 0 0 16px;">
-            Un générateur de QR code rapide et personnalisable pour les développeurs et créateurs. Changez de couleur, de coins ou ajoutez un logo en quelques clics.
+            Un générateur de QR code rapide et personnalisable pour les développeurs et créateurs. Changez de couleur,
+            de coins ou ajoutez un logo en quelques clics.
         </p>
     </div>
 
@@ -17,9 +18,43 @@
         <div style="display: flex; flex-direction: column; gap: 16px;">
 
             <!-- Zone de saisie du contenu -->
-            <div style="display: flex; flex-direction: column; gap: 6px;">
-                <label class="ch-label">Contenu du QR Code *</label>
-                <input type="text" id="qr-data-input" class="ch-input" placeholder="https://votresite.com ou texte..." value="">
+            <div id="zone-url" style="display: none">
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <label class="ch-label">Contenu du QR Code *</label>
+                    <input type="text" id="qr-data-input" class="ch-input"
+                           placeholder="https://votresite.com ou texte..." value="">
+                </div>
+                {##}
+                {#                <!-- Nom du fichier -->#}
+                {#                <div style="display: flex; flex-direction: column; gap: 6px;">#}
+                {#                    <label class="ch-label">Nom du fichier d'export</label>#}
+                {#                    <input type="text" id="qr-filename-input" class="ch-input" placeholder="converhub-qr" value="">#}
+                {#                </div>#}
+            </div>
+            <div id="zone-wifi" style="gap: 16px;">
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <label class="ch-label">Nom du réseaux (SSID)</label>
+                    <input type="text" id="qr-wifi-n-input" class="ch-input" value="" placeholder="Nom du wifi">
+                </div>
+                <div style="margin-top: 10px" >
+                    <label for="qr-wifi-t-select">Choisissez le type de sécurité</label>
+                    <select id="qr-wifi-t-select" class="ch-select"
+                            style="width: 70px; height: 50px; flex-shrink: 0; font-family: var(--ch-font-ui); font-weight: 700;">
+                        <option value="wpa">WPA / WPA2 / WPA3</option>
+                        <option value="wep">WEP</option>
+                        <option value="nopass">Aucun (Réseau ouvert / sans mot de passe)</option>
+                    </select>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <label class="ch-label">Mot de passe</label>
+                    <input type="password" id="qr-wifi-p-input" class="ch-input"
+                           placeholder="Votre mot de passe" value="">
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 6px; align-items: start; margin-top: 10px">
+                    <label>Réseau masqué (Optionnel)</label>
+                    <input type="checkbox" id="qr-wifi-p-input" value="false">
+                </div>
             </div>
 
             <!-- Nom du fichier -->
@@ -29,7 +64,8 @@
             </div>
 
             <!-- Boîte d'aperçu en direct du QR Code -->
-            <div class="ch-card-sm" style="display: flex; justify-content: center; align-items: center; padding: 24px; background: var(--ch-surface); border: 1.5px solid var(--ch-line); min-height: 280px;">
+            <div class="ch-card-sm"
+                 style="display: flex; justify-content: center; align-items: center; padding: 24px; background: var(--ch-surface); border: 1.5px solid var(--ch-line); min-height: 280px;">
                 <!-- C'est ici que la bibliothèque va injecter le canvas ou le SVG ! -->
                 <div id="qr-code-canvas"></div>
             </div>
@@ -38,14 +74,16 @@
             <div style="display: flex; gap: 8px;">
                 <!-- Sélecteur de format -->
                 <label for="qr-extension-select">Choisissez le fichier d'export</label>
-                <select id="qr-extension-select" class="ch-select" style="width: 100px; flex-shrink: 0; font-family: var(--ch-font-ui); font-weight: 700;">
+                <select id="qr-extension-select" class="ch-select"
+                        style="width: 100px; flex-shrink: 0; font-family: var(--ch-font-ui); font-weight: 700;">
                     <option value="png">PNG</option>
                     <option value="svg">SVG (HD)</option>
                     <option value="jpeg">JPEG</option>
                 </select>
 
                 <!-- Bouton d'exportation  -->
-                <button id="qr-download-btn" class="ch-btn ch-btn-primary" style="flex: 1; border-radius: var(--ch-radius-field);">
+                <button id="qr-download-btn" class="ch-btn ch-btn-primary"
+                        style="flex: 1; border-radius: var(--ch-radius-field);">
                     <i class="fa-solid fa-download"></i> Télécharger
                 </button>
             </div>
@@ -53,7 +91,8 @@
         </div>
 
         <!-- ==================== COLONNE DROITE : LE PANNEAU DE PERSONNALISATION ==================== -->
-        <div class="ch-card-sm" style="display: flex; flex-direction: column; gap: 20px; border: 1.5px solid var(--ch-line);">
+        <div class="ch-card-sm"
+             style="display: flex; flex-direction: column; gap: 20px; border: 1.5px solid var(--ch-line);">
 
             <!-- SECTION 1 : MOTIF (Points) -->
             <div style="display: flex; flex-direction: column; gap: 8px;">
@@ -66,7 +105,8 @@
 
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 4px;">
                     <span style="font-size: 0.85rem; font-weight: 600;">Couleur des points</span>
-                    <input type="color" id="qr-dots-color" value="#16181d" style="width: 44px; height: 32px; border: none; border-radius: 8px; cursor: pointer; background: transparent;">
+                    <input type="color" id="qr-dots-color" value="#16181d"
+                           style="width: 44px; height: 32px; border: none; border-radius: 8px; cursor: pointer; background: transparent;">
                 </div>
             </div>
 
@@ -76,13 +116,16 @@
             <div style="display: flex; flex-direction: column; gap: 8px;">
                 <span class="ch-label">Coins extérieurs</span>
                 <div class="ch-tabs" style="display: flex; gap: 4px;" id="qr-corners-style">
-                    <button id="corners-extra-rounded" type="button" class="ch-tab " data-style="extra-rounded">Arrondi</button>
+                    <button id="corners-extra-rounded" type="button" class="ch-tab " data-style="extra-rounded">
+                        Arrondi
+                    </button>
                     <button id="corners-dot" type="button" class="ch-tab" data-style="dot">Point</button>
                     <button id="corners-square" type="button" class="ch-tab" data-style="square">Carré</button>
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 4px;">
                     <span style="font-size: 0.85rem; font-weight: 600;">Couleur des points</span>
-                    <input type="color" id="qr-corners-color" value="#16181d" style="width: 44px; height: 32px; border: none; border-radius: 8px; cursor: pointer; background: transparent;">
+                    <input type="color" id="qr-corners-color" value="#16181d"
+                           style="width: 44px; height: 32px; border: none; border-radius: 8px; cursor: pointer; background: transparent;">
                 </div>
             </div>
             <!-- SECTION 3 : COINS CARRÉS Interieur -->
@@ -92,9 +135,10 @@
                     <button id="corners-dot-dot" type="button" class="ch-tab " data-style="dot">Point</button>
                     <button id="corners-dot-square" type="button" class="ch-tab" data-style="square">Carré</button>
                 </div>
-                 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 4px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 4px;">
                     <span style="font-size: 0.85rem; font-weight: 600;">Couleur des points</span>
-                    <input type="color" id="qr-corners-dots-color" value="#16181d" style="width: 44px; height: 32px; border: none; border-radius: 8px; cursor: pointer; background: transparent;">
+                    <input type="color" id="qr-corners-dots-color" value="#16181d"
+                           style="width: 44px; height: 32px; border: none; border-radius: 8px; cursor: pointer; background: transparent;">
                 </div>
             </div>
 
@@ -103,7 +147,8 @@
             <!-- SECTION 3 : FOND -->
             <div style="display: flex; justify-content: space-between; align-items: center;">
                 <span class="ch-label" style="margin: 0;">Couleur d'arrière-plan</span>
-                <input type="color" id="qr-bg-color" value="#ffffff" style="width: 44px; height: 32px; border: none; border-radius: 8px; cursor: pointer; background: transparent;">
+                <input type="color" id="qr-bg-color" value="#ffffff"
+                       style="width: 44px; height: 32px; border: none; border-radius: 8px; cursor: pointer; background: transparent;">
             </div>
 
             <hr style="border: none; border-top: 1px solid var(--ch-line); margin: 0;">
@@ -111,7 +156,8 @@
             <!-- SECTION 4 : LOGO AU CENTRE -->
             <div style="display: flex; flex-direction: column; gap: 8px;">
                 <span class="ch-label">Logo au centre</span>
-                <input type="file" id="qr-logo-input" accept="image/*" class="ch-input" style="padding: 8px; font-size: 0.8rem;">
+                <input type="file" id="qr-logo-input" accept="image/*" class="ch-input"
+                       style="padding: 8px; font-size: 0.8rem;">
                 <img src="" alt="" id="logo-output">
             </div>
 

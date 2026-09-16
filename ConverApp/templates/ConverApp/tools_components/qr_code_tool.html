@@ -31,39 +31,12 @@
 
         <!-- ==================== COLONNE GAUCHE : APERÇU ET EXPORT ==================== -->
         <div style="display: flex; flex-direction: column; gap: 16px;">
-            <!-- Zone de saisie du contenu -->
-            <div id="zone-url">
-                <div class="ch-view ch-animate-in" id="text-view-btn">
-                    <div style="display: flex; flex-direction: column; gap: 6px;">
-                        <label class="ch-label">Contenu du QR Code *</label>
-                        <input type="text" id="qr-data-input" class="ch-input"
-                               placeholder="https://votresite.com ou texte..." value="">
-                    </div>
-                </div>
-                <div id="zone-wifi" style="display: none; gap: 16px;">
-                    <div style="display: flex; flex-direction: column; gap: 6px;">
-                        <label class="ch-label">Nom du réseaux (SSID)</label>
-                        <input type="text" id="qr-wifi-n-input" class="ch-input" value="" placeholder="Nom du wifi">
-                    </div>
-                    <div style="margin-top: 10px">
-                        <label for="qr-wifi-t-select">Choisissez le type de sécurité</label>
-                        <select id="qr-wifi-t-select" class="ch-select"
-                                style="width: 70px; height: 50px; flex-shrink: 0; font-family: var(--ch-font-ui); font-weight: 700;">
-                            <option value="wpa">WPA / WPA2 / WPA3</option>
-                            <option value="wep">WEP</option>
-                            <option value="nopass">Aucun (Réseau ouvert / sans mot de passe)</option>
-                        </select>
-                    </div>
 
-                    <div style="display: flex; flex-direction: column; gap: 6px;">
-                        <label class="ch-label">Mot de passe</label>
-                        <input type="password" id="qr-wifi-p-input" class="ch-input"
-                               placeholder="Votre mot de passe" value="">
-                    </div>
-                    <div style="display: flex; flex-direction: column; gap: 6px; align-items: start; margin-top: 10px">
-                        <label>Réseau masqué (Optionnel)</label>
-                        <input type="checkbox" id="qr-wifi-p-input" value="false">
-                    </div>
+            <div class="ch-view ch-animate-in" id="text-view-btn">
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <label class="ch-label">Contenu du QR Code *</label>
+                    <input type="text" id="qr-data-input" class="ch-input"
+                           placeholder="https://votresite.com ou texte..." value="">
                 </div>
 
             </div>

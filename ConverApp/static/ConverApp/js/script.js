@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         const featureScreen = document.querySelector('#feature-screen')
         // featureScreen.classList.add('grow-onscroll')
-        featureScreen.style.animationPlayState = 'running'
+        // featureScreen.style.animationPlayState = 'running'
         console.log('scrolled')
     })
 

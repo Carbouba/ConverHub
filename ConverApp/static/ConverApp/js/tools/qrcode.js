@@ -17,57 +17,102 @@ const qrLogo = document.querySelector('#qr-logo-input')
 const downloadBtn = document.querySelector('#qr-download-btn')
 let qrCode
 
+const wifiName = document.querySelector('#qr-wifi-n-input')
+const wifiType = document.querySelector('#qr-wifi-t-select')
+const wifiPass = document.querySelector('#qr-wifi-p-input')
+let wifiIsHidden = document.querySelector('#qr-wifi-h-input')
+
+
+
+/*----------------------- Navigation BButtons ------------*/
+const navigationBtns = document.querySelectorAll('#views-btn .ch-view-btn')
+navigationBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        console.log(btn.id)
+        if (btn.id === btn.dataset.view) {
+            document.querySelectorAll('.ch-view').forEach(view => {
+                view.style.display = 'none'
+                if (view.id === btn.id) {
+                    view.style.display = 'block'
+                    // document.getElementById("qr-code-canvas").innerHTML = ''
+                }
+            })
+        }
+        // btn.style.background = '#1E8E5AFF'
+    })
+
+})
+
+function makeWifiQR(T, S, P, H) {
+    if (wifiIsHidden.checked){
+        H = 'true'
+    }else {
+        H = 'false'
+    }
+    document.getElementById("qr-code-canvas").innerHTML = ''
+    qrCode.append(document.getElementById("qr-code-canvas"));
+
+    const wifiString = `WIFI:T:${T};S:${S};P:${P};H:${H};;`
+
+    qrCode.update({
+        data: wifiString,
+    })
+
+    console.log(wifiString)
+}
+
+
 const extensionOptions = {
-        round: 1,
-        thickness: 60,
-        color: "#000000",
-        decorations: {
-          top: {
+    round: 1,
+    thickness: 60,
+    color: "#000000",
+    decorations: {
+        top: {
             type: "text",
             value: "SEE WHY IT'S SUPER",
             style: "font: 30px sans-serif; fill: #D5B882;",
-          },
-          bottom: {
+        },
+        bottom: {
             type: "text",
             value: "SCAN ME",
             style: "font: 30px sans-serif; fill: #D5B882;",
-          },
         },
-        borderInner: {
-          color: "#000000",
-          thickness: 10,
-        },
-        borderOuter: {
-          color: "#000000",
-          thickness: 10,
-        },
-      };
+    },
+    borderInner: {
+        color: "#000000",
+        thickness: 10,
+    },
+    borderOuter: {
+        color: "#000000",
+        thickness: 10,
+    },
+};
 const options = {
-        width: 300,
-        height: 300,
-        type: "svg",
-        data: "",
-        image: "",
-        dotsOptions: {
-            color: qrDotsColor.value,
-            type: 'rounded'
-        },
-        cornersSquareOptions: {
-            color: qrCornersColor.value,
-            type: 'extra-rounded',
-        },
-        cornersDotOptions: {
-            color: qrCornersDotsColor.value,
-            type: 'dot',
-        },
-        backgroundOptions: {
-            color: '#fff',
-        },
-        imageOptions: {
-            crossOrigin: "anonymous",
-            margin: 20
-        }
+    width: 300,
+    height: 300,
+    type: "svg",
+    data: "",
+    image: "",
+    dotsOptions: {
+        color: qrDotsColor.value,
+        type: 'rounded'
+    },
+    cornersSquareOptions: {
+        color: qrCornersColor.value,
+        type: 'extra-rounded',
+    },
+    cornersDotOptions: {
+        color: qrCornersDotsColor.value,
+        type: 'dot',
+    },
+    backgroundOptions: {
+        color: '#fff',
+    },
+    imageOptions: {
+        crossOrigin: "anonymous",
+        margin: 20
     }
+}
 
 function switchStyleBtn(id, section) {
     document.querySelectorAll(`#${section} button`).forEach(btn => {
@@ -199,6 +244,20 @@ export function InitQrCode() {
             const targetId = btn.id
             switchStyleBtn(targetId, sectionId)
         })
+    })
+
+    /*----------------------- Wifi Generattor logique ------------*/
+    wifiName.addEventListener('input', () => {
+        makeWifiQR(wifiType.value, wifiName.value, wifiPass.value, wifiIsHidden.value)
+    })
+    wifiType.addEventListener('change', () => {
+        makeWifiQR(wifiType.value, wifiName.value, wifiPass.value, wifiIsHidden.value)
+    })
+    wifiPass.addEventListener('input', () => {
+        makeWifiQR(wifiType.value, wifiName.value, wifiPass.value, wifiIsHidden.value)
+    })
+    wifiIsHidden.addEventListener('change', () => {
+        makeWifiQR(wifiType.value, wifiName.value, wifiPass.value, wifiIsHidden.value)
     })
 
 

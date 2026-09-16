@@ -1,4 +1,18 @@
 <section id="qr-generator" class="page" style="display: none;">
+    <div id="views-btn">
+        <div data-view="text-view-btn" id="text-view-btn" class="ch-view-btn active">
+            <div class="icon">
+                <i class="fa-solid fa-link"></i>
+            </div>
+            <h5 style="font-weight: 800; font-size: 16px">Url / Texte</h5>
+        </div>
+        <div data-view="wifi-view-btn" id="wifi-view-btn" class="ch-view-btn">
+            <div class="icon">
+                <i class="fa-solid fa-wifi"></i>
+            </div>
+            <h5 style="font-weight: 800; font-size: 16px">Wifi</h5>
+        </div>
+    </div>
 
     <!-- Titre de l'outil avec le liseré vert ConverHub -->
     <div style="margin-bottom: 24px;">
@@ -14,16 +28,22 @@
     <!-- GRILLE DU STUDIO (1 colonne sur mobile, 2 colonnes sur ordinateur) -->
     <div class="qr-studio-grid">
 
+
         <!-- ==================== COLONNE GAUCHE : APERÇU ET EXPORT ==================== -->
         <div style="display: flex; flex-direction: column; gap: 16px;">
 
+<<<<<<< HEAD
             <!-- Zone de saisie du contenu -->
             <div id="zone-url" >
+=======
+            <div class="ch-view ch-animate-in" id="text-view-btn">
+>>>>>>> refonte-converhub
                 <div style="display: flex; flex-direction: column; gap: 6px;">
                     <label class="ch-label">Contenu du QR Code *</label>
                     <input type="text" id="qr-data-input" class="ch-input"
                            placeholder="https://votresite.com ou texte..." value="">
                 </div>
+<<<<<<< HEAD
                 {##}
                 {#                <!-- Nom du fichier -->#}
                 {#                <div style="display: flex; flex-direction: column; gap: 6px;">#}
@@ -56,11 +76,34 @@
                     <input type="checkbox" id="qr-wifi-p-input" value="false">
                 </div>
             </div>
+=======
+>>>>>>> refonte-converhub
 
-            <!-- Nom du fichier -->
-            <div style="display: flex; flex-direction: column; gap: 6px;">
-                <label class="ch-label">Nom du fichier d'export</label>
-                <input type="text" id="qr-filename-input" class="ch-input" placeholder="converhub-qr" value="">
+            </div>
+            <div class="ch-view ch-animate-in" id="wifi-view-btn" style=" gap: 16px; display: none">
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <label class="ch-label">Nom du réseaux (SSID)</label>
+                    <input type="text" id="qr-wifi-n-input" class="ch-input" value="" placeholder="Nom du wifi">
+                </div>
+                <div style="margin-top: 10px">
+                    <label for="qr-wifi-t-select">Choisissez le type de sécurité</label>
+                    <select id="qr-wifi-t-select" class="ch-select"
+                            style="width: 70px; height: 50px; flex-shrink: 0; font-family: var(--ch-font-ui); font-weight: 700;">
+                        <option value="wpa">WPA / WPA2 / WPA3</option>
+                        <option value="wep">WEP</option>
+                        <option value="nopass">Aucun (Réseau ouvert / sans mot de passe)</option>
+                    </select>
+                </div>
+
+                <div id="mdp-div" style="display: flex; flex-direction: column; gap: 6px;">
+                    <label class="ch-label ch-animate-in">Mot de passe</label>
+                    <input type="password" id="qr-wifi-p-input" class="ch-input"
+                           placeholder="Votre mot de passe" value="">
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 6px; align-items: start; margin-top: 10px">
+                    <label>Réseau masqué (Optionnel)</label>
+                    <input type="checkbox" id="qr-wifi-h-input" value="false">
+                </div>
             </div>
 
             <!-- Boîte d'aperçu en direct du QR Code -->
@@ -86,6 +129,11 @@
                         style="flex: 1; border-radius: var(--ch-radius-field);">
                     <i class="fa-solid fa-download"></i> Télécharger
                 </button>
+            </div>
+            <!-- Nom du fichier -->
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+                <label class="ch-label">Nom du fichier d'export</label>
+                <input type="text" id="qr-filename-input" class="ch-input" placeholder="my-qrcode" value="">
             </div>
 
         </div>

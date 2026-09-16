@@ -106,7 +106,7 @@ p {
 }
 
 .ch-mono {
-    font-family: var(--ch-font-mono);
+    font-family: var(--ch-font-mono), serif;
     font-variant-numeric: tabular-nums;
     letter-spacing: -0.01em;
 }
@@ -829,6 +829,59 @@ aside span i {
 }
 
 /* ─── Carte élargie pour le Studio QR Code ─── */
+#views-btn {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 10px;
+    margin-bottom: 1rem;
+    border-radius: var(--ch-radius-field);
+    background: var(--ch-page);
+    width: 100%;
+}
+
+#views-btn .ch-view-btn {
+    display: flex;
+    align-items: center;
+    background: var(--ch-card);
+    border-radius: var(--ch-radius-field);
+    padding: 5px 8px;
+    gap: 10px;
+    transition: .3s ease;
+    cursor: pointer;
+    /*color: var(--ch-muted-soft);*/
+}
+.ch-view-btn:hover {
+    .icon{
+        transform: scale(1);
+        color: var(--ch-accent-dark);
+    }
+
+}
+
+
+.ch-view-btn.active {
+    background: var(--ch-muted-soft);
+    color: var(--ch-accent);
+    box-shadow: 0 4px 12px rgba(30, 142, 90, 0.12);
+     border: 1px solid var(--ch-muted-soft) ;
+}
+
+#views-btn .icon {
+    background: var(--ch-accent-soft);
+    padding: 20px;
+    border-radius: var(--ch-radius-field);
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ch-accent-dark);
+}
+
+
+/*-----------------------------------------------------------------*/
+
 .ch-container-wide {
     width: 100%;
     max-width: 480px; /* Sur mobile, reste compacte */
@@ -1211,7 +1264,8 @@ aside span i {
     /*animation-iteration-count: infinite;*/
     /*animation-play-state: paused;*/
 }
-#feature-screen{
+
+#feature-screen {
     transition: .3s ease;
 }
 

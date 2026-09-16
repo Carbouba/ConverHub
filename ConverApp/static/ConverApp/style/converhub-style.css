@@ -829,7 +829,7 @@ aside span i {
 }
 
 /* ─── Carte élargie pour le Studio QR Code ─── */
-#views-btn{
+#views-btn {
     display: flex;
     align-items: center;
     gap: 16px;
@@ -839,22 +839,35 @@ aside span i {
     background: var(--ch-page);
     width: 100%;
 }
-#views-btn .ch-view-btn{
+
+#views-btn .ch-view-btn {
     display: flex;
     align-items: center;
     background: var(--ch-card);
     border-radius: var(--ch-radius-field);
     padding: 5px 8px;
     gap: 10px;
-    transition: .3s  ease;
-    border: none;
-}
-#views-btn .ch-view-btn:hover{
+    transition: .3s ease;
     cursor: pointer;
-    background: var(--ch-muted-soft);
-    color: white;
+    /*color: var(--ch-muted-soft);*/
 }
-#views-btn .icon{
+.ch-view-btn:hover {
+    .icon{
+        transform: scale(1);
+        color: var(--ch-accent-dark);
+    }
+
+}
+
+
+.ch-view-btn.active {
+    background: var(--ch-muted-soft);
+    color: var(--ch-accent);
+    box-shadow: 0 4px 12px rgba(30, 142, 90, 0.12);
+     border: 1px solid var(--ch-muted-soft) ;
+}
+
+#views-btn .icon {
     background: var(--ch-accent-soft);
     padding: 20px;
     border-radius: var(--ch-radius-field);
@@ -865,11 +878,9 @@ aside span i {
     justify-content: center;
     color: var(--ch-accent-dark);
 }
-.ch-view-btn.active {
-    background: var(--ch-card);
-    color: var(--ch-accent);
-    box-shadow: 0 4px 12px rgba(30, 142, 90, 0.12);
-}
+
+
+/*-----------------------------------------------------------------*/
 
 .ch-container-wide {
     width: 100%;
@@ -1253,7 +1264,8 @@ aside span i {
     /*animation-iteration-count: infinite;*/
     /*animation-play-state: paused;*/
 }
-#feature-screen{
+
+#feature-screen {
     transition: .3s ease;
 }
 

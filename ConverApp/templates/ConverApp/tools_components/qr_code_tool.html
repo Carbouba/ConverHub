@@ -1,6 +1,6 @@
 <section id="qr-generator" class="page" style="display: none;">
     <div id="views-btn">
-        <div data-view="text-view-btn" id="text-view-btn" class="ch-view-btn">
+        <div data-view="text-view-btn" id="text-view-btn" class="ch-view-btn active">
             <div class="icon">
                 <i class="fa-solid fa-link"></i>
             </div>
@@ -32,7 +32,7 @@
         <!-- ==================== COLONNE GAUCHE : APERÇU ET EXPORT ==================== -->
         <div style="display: flex; flex-direction: column; gap: 16px;">
 
-            <div class="ch-view ch-animate-in" id="text-view-btn" style="display: none">
+            <div class="ch-view ch-animate-in" id="text-view-btn">
                 <div style="display: flex; flex-direction: column; gap: 6px;">
                     <label class="ch-label">Contenu du QR Code *</label>
                     <input type="text" id="qr-data-input" class="ch-input"
@@ -40,7 +40,7 @@
                 </div>
 
             </div>
-            <div class="ch-view ch-animate-in" id="wifi-view-btn" style=" gap: 16px;">
+            <div class="ch-view ch-animate-in" id="wifi-view-btn" style=" gap: 16px; display: none">
                 <div style="display: flex; flex-direction: column; gap: 6px;">
                     <label class="ch-label">Nom du réseaux (SSID)</label>
                     <input type="text" id="qr-wifi-n-input" class="ch-input" value="" placeholder="Nom du wifi">
@@ -55,8 +55,8 @@
                     </select>
                 </div>
 
-                <div style="display: flex; flex-direction: column; gap: 6px;">
-                    <label class="ch-label">Mot de passe</label>
+                <div id="mdp-div" style="display: flex; flex-direction: column; gap: 6px;">
+                    <label class="ch-label ch-animate-in">Mot de passe</label>
                     <input type="password" id="qr-wifi-p-input" class="ch-input"
                            placeholder="Votre mot de passe" value="">
                 </div>

@@ -138,7 +138,7 @@ export function InitQrCode() {
     qrCornersDotsColor.addEventListener('change', () => {
         qrCode.update({
             cornersDotOptions: {
-                color: qrDotsColor.value,
+                color: qrCornersDotsColor.value,
             }
         })
     })

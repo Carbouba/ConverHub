@@ -51,7 +51,7 @@ export function initNavigation() {
 
     buttons.forEach(btn => {
         btn.addEventListener("click", () => {
-            const targetId = btn.dataset.page; // ex: "currency-converter-page"
+            const targetId = btn.dataset.page;
             showPage(targetId);
             document.querySelector('.ch-sidebar').classList.remove('is-open');
             document.querySelector('#sidebar-backdrop').classList.remove('is-active');

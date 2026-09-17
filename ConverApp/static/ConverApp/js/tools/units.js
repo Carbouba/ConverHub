@@ -10,7 +10,8 @@ const UnitsCoeff = {
     'cm': 0.01,
     'mm': 0.001,
     'inch': 0.0254,
-    'pixel': 0.0002645833
+    'px': 0.0002645833,
+    'km': 1000
 }
 
 const unitsOptions = [
@@ -18,7 +19,8 @@ const unitsOptions = [
     {value: 'cm', text: 'Centimètre'},
     {value: 'mm', text: 'Millimètre'},
     {value: 'inch', text: 'Pouces'},
-    {value: 'pixel', text: 'Pixel'}
+    {value: 'px', text: 'Pixel'},
+    {value: 'km', text: 'Kilomètre'}
 ];
 
 
